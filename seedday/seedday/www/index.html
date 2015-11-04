@@ -21,6 +21,13 @@
     <!--배경 흐리게-->
     <div id="grayback" style="background-color:#000000;opacity:0;height:100%;width:100%;position:absolute;z-index:-3"></div>
     <!--//배경 흐리게-->
+    
+    <!--초기 배경화면
+    <div class="introback" style="width:100%;height:500px">
+
+    </div>
+    -->
+
     <!--메인화면-->
     <div id="main" class="inputwrap on">
         <!--상단부분-->
@@ -71,6 +78,15 @@
             eventHandler(event, $(this));
             $('#popup1').addClass("on");
         });
+
+        /*로딩 중 실행바 http://kimmobrunfeldt.github.io/progressbar.js/#example-clock
+        var progressBar;
+        progressBar = new ProgressBar("results", { 'width': '250px', 'height': '3px' });
+        var i = 0;
+        setInterval(function () {
+            progressBar.setPercent(i + 10 > 100 ? i -= i : i += 10);
+        }, 500)
+        */
     </script>
 
 </body>
