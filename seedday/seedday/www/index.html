@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SEEDDAY-StartSmall</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href="css/Seedday.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+        * {
+            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <!--배경 흐리게-->
+    <div id="grayback" style="background-color:#000000;opacity:0;height:100%;width:100%;position:absolute;z-index:-3"></div>
+    <!--//배경 흐리게-->
+    <!--메인화면-->
+    <div id="main" class="inputwrap on">
+        <!--상단부분-->
+        <section style="text-align:center">
+            <h1>Start<br>Small</h1>
+        </section>
+        <!--//상단부분-->
+        <!--중단부분-->
+        <section style="text-align:center">
+            <h1>페퍼민트</h1>
+            <button type="button" class="btn btn-success" onclick="javascript:popupOn(0)">작은 시작다짐하기</button>
+            <!--<input type="button" value="작은 시작다짐하기" onClick="javascript:popupOn(0)">-->
+        </section>
+        <!--//중단부분-->
+        <!--하단부분-->
+        <section>
+            <div style="background-color:#e8e8e8;height:auto;width:100%;text-align:center;margin:30px 0px;">
+                <h1 style="padding:20px 0px">D-DAY</h1>
+            </div>
+            <div style="text-align:center;color:#ff0000">
+                <h1>
+                    지금 작은 시작을 다짐하고<br>
+                    3일동안 실천해보세요!
+                </h1>
+            </div>
+        </section>
+        <!--//하단부분-->
+    </div>
+    <!--//메인화면-->
+    <!--다짐 입력 팝업-->
+    <div id="popup1" class="popupWrap " style="width:300px;height:300px;background-color:#0000ff;">
+
+
+    </div>
+    <!--//다짐 입력 팝업-->
+
+    <script type="text/javascript">
+        function popupOn() {
+            $('#popup1').addClass("on");
+        }
+    </script>
+
+</body>
+</html>
+
+<!--
+
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+<script>
+
+  // 우편번호 찾기 화면을 넣을 element
+    var element_layer = document.getElementById('layer');
+
+    function closeDaumPostcode() {
+        // iframe을 넣은 element를 안보이게 한다.
+        element_layer.style.display = 'none';
+    }
+
+    function sample2_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = data.address; // 최종 주소 변수
+                var extraAddr = ''; // 조합형 주소 변수
+
+                // 기본 주소가 도로명 타입일때 조합한다.
+                if(data.addressType === 'R'){
+                    //법정동명이 있을 경우 추가한다.
+                    if(data.bname !== ''){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있을 경우 추가한다.
+                    if(data.buildingName !== ''){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample3_postcode').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('sample3_address').value = fullAddr;
+                //document.getElementById('sample2_addressEnglish').value = data.addressEnglish;
+
+                // iframe을 넣은 element를 안보이게 한다.
+                // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
+                element_layer.style.display = 'none';
+            },
+            width : '100%',
+            height : '100%'
+        }).embed(element_layer);
+
+        // iframe을 넣은 element를 보이게 한다.
+        element_layer.style.display = 'block';
+
+        // iframe을 넣은 element의 위치를 화면의 가운데로 이동시킨다.
+        initLayerPosition();
+    }
+
+    // 브라우저의 크기 변경에 따라 레이어를 가운데로 이동시키고자 하실때에는
+    // resize이벤트나, orientationchange이벤트를 이용하여 값이 변경될때마다 아래 함수를 실행 시켜 주시거나,
+    // 직접 element_layer의 top,left값을 수정해 주시면 됩니다.
+    function initLayerPosition(){
+        var width =$('#main').outerWidth(); //우편번호서비스가 들어갈 element의 width
+        var height = 640; //우편번호서비스가 들어갈 element의 height
+        var borderWidth = 5; //샘플에서 사용하는 border의 두께
+
+        // 위에서 선언한 값들을 실제 element에 넣는다.
+        element_layer.style.width = width + 'px';
+        element_layer.style.height = height + 'px';
+        element_layer.style.border = borderWidth + 'px solid';
+        // 실행되는 순간의 화면 너비와 높이 값을 가져와서 중앙에 뜰 수 있도록 위치를 계산한다.
+        element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
+        element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
+    }
+    function checkForm()
+        {
+
+            var userpost = document.getElementById('sample3_postcode').value;
+            var address = document.getElementById('sample3_address').value;
+            var useradr = document.getElementById('sample3_useradr').value;
+            var username = document.getElementById('sample3_username').value;
+
+            if (userpost.length < 1){
+                alert("우편번호를 입력해주세요.");
+                return;
+            }
+            //우편번호 검사
+            if (address.length<1)
+            {
+                alert("상세주소1를 입력해주세요.");
+                return;
+            }
+
+            if (useradr.length<1)
+            {
+                alert("상세주소를 입력해주세요.");
+                return;
+            }
+
+
+            if (username.length<1) {
+                alert("받는사람의 이름을 입력해주세요.");
+                return;
+            }
+
+            submitpage(address,useradr);
+
+        }
+        $(document).ready(function(){
+            /*
+            var temp = $('#main').outerWidth();
+            var temp1 = $('#main').outerHeight();
+                $('#main').css({
+                    "margin-left" : -temp/2
+
+                });
+                */
+            setTimeout("myInterval()",3000);
+
+
+        })
+            var a = 0.10;
+        function myInterval(){
+            timerId = setInterval("changeop()",75);
+        }
+        function changeop(){
+
+
+            $('#grayback').css({
+                "opacity": (a/2)*8/5
+            })
+            $('#main').css({
+               "opacity": a
+            });
+            a= a+0.10;
+
+            if(a>1){
+
+
+                clearInterval(timerId);
+                a=0;
+            }
+
+        }
+
+         function submitpage(address, useradr){
+            document.getElementById("userinput").innerHTML=address+", "+useradr;
+            $('#main').removeClass('on');
+            $('.submitwrap').addClass('on');
+             var temp2 = $('.submitwrap').outerWidth();
+             var tempwidth = $('.submit_text1').outerWidth();
+             $('.hrwidth').css({
+                 "width":tempwidth
+             });
+            $('.submitwrap').css({
+                "margin-left":-temp2/2
+            })
+            timerId2 = setInterval("changesub()",10);
+         }
+         var b = 0.0;
+         function changesub(){
+             $('.submitwrap').css({
+                 "top": b+"%"
+             });
+             b = b+2;
+             if(b>50){
+                 clearInterval(timerId2);
+                 b=0;
+             }
+
+         }
+
+         function finalmsg(){
+
+            var f = document.inputForm;
+
+            var userpost = document.getElementById('sample3_postcode').value;
+            var address = document.getElementById('sample3_address').value;
+            var useradr = document.getElementById('sample3_useradr').value;
+            var username = document.getElementById('sample3_username').value;
+
+            f.finuser.value = username;
+            f.finpost.value = userpost;
+            f.finadr.value = address + useradr;
+
+            f.submit();
+
+         }
+
+         function backbtn(){
+            $('.submitwrap').removeClass('on');
+            $('#main').addClass('on');
+         }
+
+
+</script>
+
+
+    <div class="submitwrap">
+        <div style="position:relative">
+            <img src="images/small tree.png" style="position:absolute;top:-34px;left:154px;" />
+            <img src="images/large tree.png" style="position:absolute;top:-53px;right:22px;" />
+            <img src="images/small cloud.png" style="position:absolute;top:-120px;left:90px;z-index:1;" />
+            <img src="images/large cloud.png" style="position:absolute;top:-90px;right:108px;z-index:1;" />
+            <div class="verticalline" style="position:absolute;left:126px;top:-1002px;"></div>
+            <div class="verticalline2" style="position:absolute;right:126px;top:-1002px;"></div>
+            <div class="smalldots" style="position:absolute;left:160px;top:-100px"></div>
+            <div class="smalldots" style="position:absolute;left:0px;top:-150px"></div>
+            <div class="smalldots" style="position:absolute;left:300px;top:-40px"></div>
+            <div class="smalldots" style="position:absolute;right:0px;top:-50px"></div>
+            <div class="smalldots" style="position:absolute;right:50px;top:-120px"></div>
+        </div>
+        <p class="submit_text">입력하신 주소는</p>
+        <p class="textwrap">
+            <span class="submit_text1" style="line-height:1.5">
+                <span id="userinput" class="userinputtext"></span>
+                입니다.
+            </span>
+        </p>
+        <hr class="hrwidth">
+        <p class="bottomtext">확인을 누르시면 허브키우기 KIT가 발송됩니다.</p>
+        <%=form_tag '/addr/submit',:class=>"submitbox",:name=>"inputForm",method: 'post' do %>
+        <input class="btnbox fontsize20 " style="width:200px;margin-right:10px" type="button" value="돌아가기" onclick="backbtn()">
+        <input class="btnbox fontsize20 " style="width:200px" type="button" value="확인" onclick="finalmsg()">
+        <input type="hidden" name="finuser" value="">
+        <input type="hidden" name="finpost" value="">
+        <input type="hidden" name="finadr" value="">
+        <% end %>
+    </div>
+
+    -->
