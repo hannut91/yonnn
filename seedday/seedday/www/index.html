@@ -16,6 +16,8 @@
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+    
     <!--배경 흐리게-->
     <div id="grayback" style="background-color:#000000;opacity:0;height:100%;width:100%;position:absolute;z-index:-3"></div>
     <!--//배경 흐리게-->
@@ -29,8 +31,7 @@
         <!--중단부분-->
         <section style="text-align:center">
             <h1>페퍼민트</h1>
-            <button type="button" class="btn btn-success" onclick="javascript:popupOn(0)">작은 시작다짐하기</button>
-            <!--<input type="button" value="작은 시작다짐하기" onClick="javascript:popupOn(0)">-->
+            <button id="buttonTest" type="button" class="btn btn-success" >작은 시작다짐하기</button>
         </section>
         <!--//중단부분-->
         <!--하단부분-->
@@ -56,9 +57,20 @@
     <!--//다짐 입력 팝업-->
 
     <script type="text/javascript">
-        function popupOn() {
-            $('#popup1').addClass("on");
+
+        //터치 이벤트 핸들러
+        function eventHandler(event, selector) {
+            event.stopPropagation();
+            event.preventDefault();
+            if (event.type === 'touchend') {
+                selector.off('click');
+            }
         }
+        //팝업 켜기 버튼 클릭 시
+        $('#buttonTest').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            $('#popup1').addClass("on");
+        });
     </script>
 
 </body>
