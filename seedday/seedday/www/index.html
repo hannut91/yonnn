@@ -35,9 +35,9 @@
         <!--중단부분-->
         <section style="text-align:center">
             <h1>페퍼민트</h1>
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-               작은 시작다짐하기
-            </button>
+            <button id="buttonTest" type="button" class="btn btn-success" >작은 시작다짐하기</button>
+            <button type="button" onclick="javascript:storTest(0)">초기값 확인 테스트</button>
+            <button type="button" onclick="javascript:storTest2(0)">변경값 확인 테스트</button>
         </section>
         <!--//중단부분-->
         <!--하단부분-->
@@ -167,6 +167,18 @@
             progressBar.setPercent(i + 10 > 100 ? i -= i : i += 10);
         }, 500)
         */
+
+        //로컬 저장하는 스크립트
+        localStorage.setItem("lastname", "yoon");
+        function storTest() {
+            alert(localStorage.getItem("lastname"));
+        }
+        function storTest2() {
+            localStorage.lastname = "Hello";
+            alert(localStorage.getItem("lastname"));
+
+        }
+
     </script>
 
 </body>
