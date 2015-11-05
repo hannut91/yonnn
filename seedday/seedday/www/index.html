@@ -14,10 +14,7 @@
             font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
         }
     </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-
-    
+     
     <!--배경 흐리게-->
     <div id="grayback" style="background-color:#000000;opacity:0;height:100%;width:100%;position:absolute;z-index:-3"></div>
     <!--//배경 흐리게-->
@@ -39,6 +36,8 @@
         <section style="text-align:center">
             <h1>페퍼민트</h1>
             <button id="buttonTest" type="button" class="btn btn-success" >작은 시작다짐하기</button>
+            <button type="button" onclick="javascript:storTest(0)">초기값 확인 테스트</button>
+            <button type="button" onclick="javascript:storTest2(0)">변경값 확인 테스트</button>
         </section>
         <!--//중단부분-->
         <!--하단부분-->
@@ -81,8 +80,7 @@
             </div>
             <div style="text-align:center;color:#ff0000">
                 <h1>
-                    누리페이지
-                    윤석페이지ㅎ
+                    윤석페이지 
                 </h1>
             </div>
         </section>
@@ -124,6 +122,18 @@
             progressBar.setPercent(i + 10 > 100 ? i -= i : i += 10);
         }, 500)
         */
+
+        //로컬 저장하는 스크립트
+        localStorage.setItem("lastname", "yoon");
+        function storTest() {
+            alert(localStorage.getItem("lastname"));
+        }
+        function storTest2() {
+            localStorage.lastname = "Hello";
+            alert(localStorage.getItem("lastname"));
+
+        }
+
     </script>
 
 </body>
