@@ -14,7 +14,7 @@
             font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
         }
     </style>
-   
+
     <!--배경 흐리게-->
     <div id="grayback" style="background-color:#000000;opacity:0;height:100%;width:100%;position:absolute;z-index:-3"></div>
     <!--//배경 흐리게-->
@@ -42,27 +42,26 @@
         <!--//중단부분-->
         <!--하단부분-->
         <section>
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
 
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <div style="background-color:#e8e8e8;height:100px;width:100%;text-align:center;margin:30px 0px;">
+                        <div style="width:100%;text-align:center;">
                             <h1 style="padding:20px 0px">D-DAY</h1>
                         </div>
 
                     </div>
                     <div class="item">
-                        <div style="background-color:#e8e8e8;height:100px;width:100%;text-align:center;margin:30px 0px;">
+                        <div style="width:100%;text-align:center;">
                             <h1 style="padding:20px 0px">D-1</h1>
                         </div>
                     </div>
 
                     <div class="item">
-                        <div style="background-color:#e8e8e8;height:100px;width:100%;text-align:center;margin:30px 0px;">
+                        <div style="width:100%;text-align:center;">
                             <h1 style="padding:20px 0px">D-2</h1>
-                            <p>테스트중</p>
                         </div>
                     </div>
 
@@ -126,9 +125,9 @@
                         -->
                 </div>
             </div>
-        </div>
+    </div>
      </section>
-     <!--//다짐 입력 팝업-->
+    <!--//다짐 입력 팝업-->
 
     <!--다짐 입력 확인 팝업-->
     
@@ -138,21 +137,21 @@
        
     <!--//다짐 입력 확인 팝업-->
 
-        <script type="text/javascript">
+    <script type="text/javascript">
 
-            //터치 이벤트 핸들러
-            function eventHandler(event, selector) {
-                event.stopPropagation();
-                event.preventDefault();
-                if (event.type === 'touchend') {
-                    selector.off('click');
-                }
+        //터치 이벤트 핸들러
+        function eventHandler(event, selector) {
+            event.stopPropagation();
+            event.preventDefault();
+            if (event.type === 'touchend') {
+                selector.off('click');
             }
-            //팝업 켜기 버튼 클릭 시
-            $('#buttonTest').on('touchend click', function (event) {
-                eventHandler(event, $(this));
-                $('#popup1').addClass("on");
-            });
+        }
+        //팝업 켜기 버튼 클릭 시
+        $('#buttonTest').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            $('#popup1').addClass("on");
+        });
 
             //다짐 입력 팝업 확인 클릭 시
             $('#promiseInputBtn').on('touchend click', function (event) {
@@ -160,15 +159,15 @@
             });
 
 
-            /*로딩 중 실행바 http://kimmobrunfeldt.github.io/progressbar.js/#example-clock
-            var progressBar;
-            progressBar = new ProgressBar("results", { 'width': '250px', 'height': '3px' });
-            var i = 0;
-            setInterval(function () {
-                progressBar.setPercent(i + 10 > 100 ? i -= i : i += 10);
-            }, 500)
-            */
-        </script>
+        /*로딩 중 실행바 http://kimmobrunfeldt.github.io/progressbar.js/#example-clock
+        var progressBar;
+        progressBar = new ProgressBar("results", { 'width': '250px', 'height': '3px' });
+        var i = 0;
+        setInterval(function () {
+            progressBar.setPercent(i + 10 > 100 ? i -= i : i += 10);
+        }, 500)
+        */
+    </script>
 
 </body>
 </html>
