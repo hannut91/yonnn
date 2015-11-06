@@ -124,16 +124,22 @@
         */
 
         //로컬 저장하는 스크립트
-        localStorage.setItem("lastname", "yoon");
+        if(localStorage.getItem("DAY1") ==null) localStorage.setItem("DAY1", "DAY1");
+        if(localStorage.getItem("DAY2") ==null) localStorage.setItem("DAY2", "DAY2");
+        if(localStorage.getItem("DAY3") ==null) localStorage.setItem("DAY3", "DAY3");
+        if(localStorage.getItem("curDay") == null) localStorage.setItem("curDay", "curDay");
+        
         function storTest() {
-            alert(localStorage.getItem("lastname"));
+            alert("초기값 DAY1 = " + localStorage.getItem("DAY1") +
+                  " DAY2 = " + localStorage.getItem("DAY2") + " DAY3 = "
+                  + localStorage.getItem("DAY3") + " curDay = " + localStorage.getItem("curDay"));
         }
         function storTest2() {
-            localStorage.lastname = "Hello";
-            alert(localStorage.getItem("lastname"));
-
+            localStorage.setItem("curDay", new Date().getDay());
+            alert("이후값 DAY1 = " + localStorage.getItem("DAY1") +
+                     " DAY2 = " + localStorage.getItem("DAY2") + " DAY3 = "
+                     + localStorage.getItem("DAY3") + " curDay = " + localStorage.getItem("curDay"));
         }
-
     </script>
 
 </body>
