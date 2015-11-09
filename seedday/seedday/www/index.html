@@ -7,6 +7,7 @@
     <link href="css/Seedday.css" rel="stylesheet" />
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="scripts/framework/angular.min.js"></script>
 </head>
 <body>
     <style>
@@ -14,17 +15,15 @@
             font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
         }
     </style>
-    
+
     <!--배경 흐리게-->
     <div id="grayback" style="background-color:#000000;opacity:0;height:100%;width:100%;position:absolute;z-index:-3"></div>
     <!--//배경 흐리게-->
-    
     <!--초기 배경화면
     <div class="introback" style="width:100%;height:500px">
 
     </div>
     -->
-
     <!--메인화면-->
     <div id="main" class="inputwrap on">
         <!--상단부분-->
@@ -34,91 +33,137 @@
         <!--//상단부분-->
         <!--중단부분-->
         <section style="text-align:center">
-            <h1>페퍼민트</h1>
-            <button id="buttonTest" type="button" class="btn btn-success" >작은 시작다짐하기</button>
+            <h1 id="plant">페퍼민트</h1>
+            <button id="mainBtn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                작은 시작다짐하기
+            </button>
         </section>
         <!--//중단부분-->
-        <!--하단부분-->
         <section>
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+            <div role="tabpanel">
 
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active" style="width: 25% "text-align:center"> <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+                    <li role="presentation" style="width: 25% "text-align:center"> <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+                    <li role="presentation" style="width: 25% "text-align:center"> <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                    <li role="presentation" style="width: 25% "text-align:center"> <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                </ul>
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <div style="width:100%;text-align:center;">
-                            <h1 style="padding:20px 0px">D-DAY</h1>
-                        </div>
-
-                    </div>
-                    <div class="item">
-                        <div style="width:100%;text-align:center;">
-                            <h1 style="padding:20px 0px">D-1</h1>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div style="width:100%;text-align:center;">
-                            <h1 style="padding:20px 0px">D-2</h1>
-                        </div>
-                    </div>
-
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="DAY-1"> 작은 시작다짐하기 </div>
+                    <div role="tabpanel" class="tab-pane" id="DAY-2">...</div>
+                    <div role="tabpanel" class="disabled" id="DAY-3">...</div>
                 </div>
 
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            <div style="text-align:center;color:#ff0000">
-                <h1>
-                    재원페이지
-                </h1>
             </div>
         </section>
         <!--//하단부분-->
     </div>
     <!--//메인화면-->
-
-   
-
-
     <!--다짐 입력 팝업-->
-    <div id="popup1" class="popupWrap " style="width:300px;height:300px;background-color:#0000ff;">
-        첫번 째 프로그램입니다.
+    <section style="text-align:center">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <section id="viewPop1" class="viewPopup on">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>
+                                작은 시작 다짐하기
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                            <textarea placeholder="작은시작하기" style="height:300px;width:100%;text-align:center;display:inline-block;" ng-model="promiseContent"></textarea>
+                        </div>
+                        <div class="modal-footer" style="text-align:center">
+                            <button id="promiseInputBtn" type="button" class="btn btn-default">확인</button>
+                        </div>
+                    </div>
+                </section>
 
-    </div>
+                <section id="viewPop2" class="viewPopup">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>
+                                작은시작 다짐확인
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                            <h3>{{promiseContent}}</h3>
+                            <p>당신의 작은 시작을 응원합니다.</p>
+                        </div>
+                        <div class="modal-footer" style="text-align:center">
+                            <button id="promiseEdit" type="button" class="btn btn-default">수정</button>
+                            <button id="promiseFin" type="button" class="btn btn-default" data-dismiss="modal">확인</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
     <!--//다짐 입력 팝업-->
+    <!--다짐 입력 확인 팝업-->
+    <!--//다짐 입력 확인 팝업-->
 
     <script type="text/javascript">
 
-        //터치 이벤트 핸들러
-        function eventHandler(event, selector) {
-            event.stopPropagation();
-            event.preventDefault();
-            if (event.type === 'touchend') {
-                selector.off('click');
+            //터치 이벤트 핸들러
+            function eventHandler(event, selector) {
+                event.stopPropagation();
+                event.preventDefault();
+                if (event.type === 'touchend') {
+                    selector.off('click');
+                }
             }
-        }
-        //팝업 켜기 버튼 클릭 시
-        $('#buttonTest').on('touchend click', function (event) {
-            eventHandler(event, $(this));
-            $('#popup1').addClass("on");
-        });
+            //팝업 켜기 버튼 클릭 시
+            $('#buttonTest').on('touchend click', function (event) {
+                eventHandler(event, $(this));
+                $('#popup1').addClass("on");
+            });
 
-        /*로딩 중 실행바 http://kimmobrunfeldt.github.io/progressbar.js/#example-clock
-        var progressBar;
-        progressBar = new ProgressBar("results", { 'width': '250px', 'height': '3px' });
-        var i = 0;
-        setInterval(function () {
-            progressBar.setPercent(i + 10 > 100 ? i -= i : i += 10);
-        }, 500)
-        */
+            //다짐 입력 팝업 확인 클릭 시
+            $('#promiseInputBtn').on('touchend click', function (event) {
+                $('#viewPop1').removeClass("on");
+                $('#viewPop2').addClass("on");
+            });
+
+            //다짐 입력 팝업 수정 클릭 시
+            $('#promiseEdit').on('touchend click', function (event) {
+                $('#viewPop2').removeClass("on");
+                $('#viewPop1').addClass("on");
+            });
+
+            //다짐 확인 팝업 확인 클릭 시 텍스트 변경
+            $('#promiseFin').on('touchend click', function (event) {
+
+                    var today = new Date();
+                    var month = today.getMonth() + 1;
+                    var day = today.getDate();
+
+                    document.getElementById("mainBtn").innerHTML = "오늘의 실천 기록하기";
+                    document.getElementById("plant").innerHTML = "새싹";
+                    document.getElementById("bottomText").innerHTML = month + "월" + day + "일 24시까지 <br/>작은시작의 실천을 기록해주세요!";
+
+            });
+
+
+            //앵귤러js 사용하기 위해 선언
+            angular.element(document).ready(function () {
+                angular.bootstrap(document, ['app']);
+            });
+            angular.module('app', []);
+
+            /*로딩 중 실행바 http://kimmobrunfeldt.github.io/progressbar.js/#example-clock
+            var progressBar;
+            progressBar = new ProgressBar("results", { 'width': '250px', 'height': '3px' });
+            var i = 0;
+            setInterval(function () {
+                progressBar.setPercent(i + 10 > 100 ? i -= i : i += 10);
+            }, 500)
+            */
     </script>
 
 </body>
