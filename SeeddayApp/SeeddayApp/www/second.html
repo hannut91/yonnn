@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js">
+    </script>
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>콘텐츠 위치</div>
+    <div role="tabpanel">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" aria-expanded="true" role="tab" id="home-tab" data-toggle="tab">DAY-1</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" aria-expanded="false" role="tab" id="profile-tab" data-toggle="tab">DAY-2</a></li>
+            <li role="presentation"><a href="#messages" aria-controls="messages" aria-expanded="false" role="tab" id="messages-tab" data-toggle="tab">DAY-3</a></li>
+         
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab"> 첫째날 </div>
+            <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab"> 둘째날 </div>
+            <div role="tabpanel" class="tab-pane fade" id="messages" aria-labelledby="messages-tab"> 셋째날</div>
+        </div>   
+
+    </div>
+    <!-- 실천기록하기 버튼 -->
+    <button type="button" class="btn btn-primary btn-lg btn-block"> 오늘의 실천 기록하기 </button>
+</body>
+</html>
