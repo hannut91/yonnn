@@ -15,7 +15,7 @@
             font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
         }
     </style>
-
+    
     <!--배경 흐리게-->
     <div id="grayback" style="background-color:#000000;opacity:0;height:100%;width:100%;position:absolute;z-index:-3"></div>
     <!--//배경 흐리게-->
@@ -35,8 +35,10 @@
         <section style="text-align:center">
             <h1 id="plant">페퍼민트</h1>
             <button id="mainBtn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                작은 시작다짐하기
+               작은 시작다짐하기
             </button>
+            <button type="button" onclick="javascript:storTest(0)">초기값 확인 테스트</button>
+            <button type="button" onclick="javascript:storTest2(0)">변경값 확인 테스트</button>
         </section>
         <!--//중단부분-->
         <section>
@@ -55,9 +57,9 @@
                     <div role="tabpanel" class="tab-pane active" id="DAY-1"> 작은 시작다짐하기 </div>
                     <div role="tabpanel" class="tab-pane" id="DAY-2">...</div>
                     <div role="tabpanel" class="disabled" id="DAY-3">...</div>
-                </div>
+                        </div>
 
-            </div>
+                    </div>
         </section>
         <!--//하단부분-->
     </div>
@@ -76,7 +78,7 @@
                         </div>
                         <div class="modal-body">
                             <textarea placeholder="작은시작하기" style="height:300px;width:100%;text-align:center;display:inline-block;" ng-model="promiseContent"></textarea>
-                        </div>
+                    </div>
                         <div class="modal-footer" style="text-align:center">
                             <button id="promiseInputBtn" type="button" class="btn btn-default">확인</button>
                         </div>
@@ -90,82 +92,194 @@
                                 작은시작 다짐확인
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </h2>
-                        </div>
+                </div>
                         <div class="modal-body">
                             <h3>{{promiseContent}}</h3>
                             <p>당신의 작은 시작을 응원합니다.</p>
-                        </div>
-                        <div class="modal-footer" style="text-align:center">
+            </div>
+            <div style="text-align:center;color:#ff0000">
+                <h1 id="bottomText">
+                    지금 작은 시작을 다짐하고<br />
+                    3일동안 실천해보세요!
+                </h1>
+            </div>
+        </section>
+    </div>
+    <!--//메인화면-->
+    <!--다짐 입력 팝업-->
+    <section style="text-align:center">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <section id="viewPop1" class="viewPopup on">
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <h2>
+                                작은 시작 다짐하기
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </h2>
+                    </div>
+                    <div class="modal-body">
+                            <textarea placeholder="작은시작하기" style="height:300px;width:100%;text-align:center;display:inline-block;" ng-model="promiseContent"></textarea>
+                    </div>
+                    <div class="modal-footer" style="text-align:center">
+                        <button id="promiseInputBtn" type="button" class="btn btn-default">확인</button>
+                    </div>
+                </div>
+                </section>
+
+                <section id="viewPop2" class="viewPopup">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>
+                                작은시작 다짐확인
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </h2>
+                    </div>
+                    <div class="modal-body">
+                            <h3>{{promiseContent}}</h3>
+                            <p>당신의 작은 시작을 응원합니다.</p>
+                    </div>
+                    <div class="modal-footer" style="text-align:center">
                             <button id="promiseEdit" type="button" class="btn btn-default">수정</button>
                             <button id="promiseFin" type="button" class="btn btn-default" data-dismiss="modal">확인</button>
+                    </div>
+                </div>
+                </section>
+            </div>
+        </div>
+     </section>
+     <!--//다짐 입력 팝업-->
+
+    
+    <!--오늘의 실천 기록하기 팝업-->
+    <section style="text-align:center">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <section id="actionPop1" class="actionPopup on">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>
+                                오늘의 실천 기록하기
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                            <textarea placeholder="오늘의 실천은 어땟나요?" style="height:300px;width:100%;text-align:center;display:inline-block;" ng-model="promiseContent"></textarea>
+                        </div>
+                        <div class="modal-footer" style="text-align:center">
+                            <button id="promiseInputBtn" type="button" class="btn btn-default">확인</button>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
-    </section>
-    <!--//다짐 입력 팝업-->
-    <!--다짐 입력 확인 팝업-->
-    <!--//다짐 입력 확인 팝업-->
+     </section>
+
+     <!--//오늘의 실천 기록하기 팝업-->
+                <!--교체할 요소 목록들-->
+                <div style="display:none;">
+                    <button id="mainBtn2" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        오늘의 실천 기록하기
+    
+                    </button>
+
+    </div>
+                <!--//교체할 요소 목록들-->
+
+
+       
 
     <script type="text/javascript">
 
-            //터치 이벤트 핸들러
-            function eventHandler(event, selector) {
-                event.stopPropagation();
-                event.preventDefault();
-                if (event.type === 'touchend') {
-                    selector.off('click');
-                }
+        //터치 이벤트 핸들러
+        function eventHandler(event, selector) {
+            event.stopPropagation();
+            event.preventDefault();
+            if (event.type === 'touchend') {
+                selector.off('click');
             }
-            //팝업 켜기 버튼 클릭 시
-            $('#buttonTest').on('touchend click', function (event) {
-                eventHandler(event, $(this));
-                $('#popup1').addClass("on");
-            });
+        }
+        //팝업 켜기 버튼 클릭 시
+        $('#buttonTest').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            $('#popup1').addClass("on");
+        });
 
             //다짐 입력 팝업 확인 클릭 시
             $('#promiseInputBtn').on('touchend click', function (event) {
-                $('#viewPop1').removeClass("on");
-                $('#viewPop2').addClass("on");
+                        $('#viewPop1').removeClass("on");
+                        $('#viewPop2').addClass("on");
+                    });
+
+                    //다짐 입력 팝업 수정 클릭 시
+                    $('#promiseEdit').on('touchend click', function (event) {
+                        $('#viewPop2').removeClass("on");
+                        $('#viewPop1').addClass("on");
+                    });
+
+                    //다짐 확인 팝업 확인 클릭 시 텍스트 변경
+                    $('#promiseFin').on('touchend click', function (event) {
+
+                        var today = new Date();
+                        var month = today.getMonth() + 1;
+                        var day = today.getDate();
+
+                        //document.getElementById("mainBtn").innerHTML = "오늘의 실천 기록하기";
+                        document.getElementById("plant").innerHTML = "새싹";
+                        document.getElementById("bottomText").innerHTML = month + "월" + day + "일 24시까지 <br/>작은시작의 실천을 기록해주세요!";
+
+                        $("#mainBtn").replaceWith($("#mainBtn2"));
+
+                    });
+
+                    //팝업 켜기 버튼 클릭 시
+                    $('#buttonTest').on('touchend click', function (event) {
+                        eventHandler(event, $(this));
+                        $('#popup1').addClass("on");
             });
 
-            //다짐 입력 팝업 수정 클릭 시
-            $('#promiseEdit').on('touchend click', function (event) {
-                $('#viewPop2').removeClass("on");
-                $('#viewPop1').addClass("on");
-            });
 
-            //다짐 확인 팝업 확인 클릭 시 텍스트 변경
-            $('#promiseFin').on('touchend click', function (event) {
+                    //앵귤러js 사용하기 위해 선언
+                    angular.element(document).ready(function () {
+                        angular.bootstrap(document, ['app']);
+                    });
+                    angular.module('app', []);
 
-                    var today = new Date();
-                    var month = today.getMonth() + 1;
-                    var day = today.getDate();
+        /*로딩 중 실행바 http://kimmobrunfeldt.github.io/progressbar.js/#example-clock
+        var progressBar;
+        progressBar = new ProgressBar("results", { 'width': '250px', 'height': '3px' });
+        var i = 0;
+        setInterval(function () {
+            progressBar.setPercent(i + 10 > 100 ? i -= i : i += 10);
+        }, 500)
+        */
 
-                    document.getElementById("mainBtn").innerHTML = "오늘의 실천 기록하기";
-                    document.getElementById("plant").innerHTML = "새싹";
-                    document.getElementById("bottomText").innerHTML = month + "월" + day + "일 24시까지 <br/>작은시작의 실천을 기록해주세요!";
+        //로컬 저장하는 스크립트
+        if(localStorage.getItem("DAY1") ==null) localStorage.setItem("DAY1", "DAY1");
+        if(localStorage.getItem("DAY2") ==null) localStorage.setItem("DAY2", "DAY2");
+        if(localStorage.getItem("DAY3") ==null) localStorage.setItem("DAY3", "DAY3");
+        if(localStorage.getItem("curDay") == null) localStorage.setItem("curDay", "curDay");
+        
+        function storTest() {
+            alert("초기값 DAY1 = " + localStorage.getItem("DAY1") +
+                  " DAY2 = " + localStorage.getItem("DAY2") + " DAY3 = "
+                  + localStorage.getItem("DAY3") + " curDay = " + localStorage.getItem("curDay"));
+        }
+        function storTest2() {
+            localStorage.setItem("curDay", new Date().getDay());
+            alert("이후값 DAY1 = " + localStorage.getItem("DAY1") +
+                     " DAY2 = " + localStorage.getItem("DAY2") + " DAY3 = "
+                     + localStorage.getItem("DAY3") + " curDay = " + localStorage.getItem("curDay"));
+        }
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            console.log(StatusBar);
+            StatusBar.backgroundColorByHexString("#ff0000");
 
-            });
-
-
-            //앵귤러js 사용하기 위해 선언
-            angular.element(document).ready(function () {
-                angular.bootstrap(document, ['app']);
-            });
-            angular.module('app', []);
-
-            /*로딩 중 실행바 http://kimmobrunfeldt.github.io/progressbar.js/#example-clock
-            var progressBar;
-            progressBar = new ProgressBar("results", { 'width': '250px', 'height': '3px' });
-            var i = 0;
-            setInterval(function () {
-                progressBar.setPercent(i + 10 > 100 ? i -= i : i += 10);
-            }, 500)
-            */
+        }
     </script>
 
+   
 </body>
 </html>
 
