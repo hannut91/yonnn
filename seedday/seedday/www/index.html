@@ -187,8 +187,15 @@
                      " DAY2 = " + localStorage.getItem("DAY2") + " DAY3 = "
                      + localStorage.getItem("DAY3") + " curDay = " + localStorage.getItem("curDay"));
         }
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            console.log(StatusBar);
+            StatusBar.backgroundColorByHexString("#ff0000");
+
+        }
     </script>
 
+   
 </body>
 </html>
 

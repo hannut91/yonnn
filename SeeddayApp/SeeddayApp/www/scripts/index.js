@@ -10,8 +10,7 @@
     function onDeviceReady() {
         // Cordova 일시 중지를 처리하고 이벤트를 다시 시작합니다.
         document.addEventListener( 'pause', onPause.bind( this ), false );
-        document.addEventListener('resume', onResume.bind(this), false);
-
+        document.addEventListener( 'resume', onResume.bind( this ), false );
         
         // TODO: Cordova가 로드되었습니다. 여기서 Cordova가 필요한 모든 설치를 수행합니다.
     };
