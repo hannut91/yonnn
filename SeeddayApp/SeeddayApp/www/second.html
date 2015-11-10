@@ -5,7 +5,7 @@
     <title></title>
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js">
     </script>
-
+    <script src="scripts/framework/angular.min.js"></script>
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -23,8 +23,8 @@
         <ul class="nav nav-tabs nav-justified" role="tablist">
             <li role="presentation" class="active"><a href="#home" aria-controls="home" aria-expanded="true" role="tab" id="home-tab" data-toggle="tab">DAY-1</a></li>
             <li role="presentation"><a href="#profile" aria-controls="profile" aria-expanded="false" role="tab" id="profile-tab" data-toggle="tab">DAY-2</a></li>
-            <li role="presentation"><a href="#messages" aria-controls="messages" aria-expanded="false" role="tab" id="messages-tab" data-toggle="tab">DAY-3</a></li>
-         
+            <li role="presentation" class="disabled"><a href="#messages" aria-controls="messages" aria-expanded="false" role="tab" id="messages-tab" data-toggle="tab">DAY-3</a></li>
+
         </ul>
 
         <!-- Tab panes -->
@@ -32,10 +32,72 @@
             <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab"> 첫째날 </div>
             <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab"> 둘째날 </div>
             <div role="tabpanel" class="tab-pane fade" id="messages" aria-labelledby="messages-tab"> 셋째날</div>
-        </div>   
+        </div>
 
     </div>
     <!-- 실천기록하기 버튼 -->
-    <button type="button" class="btn btn-primary btn-lg btn-block"> 오늘의 실천 기록하기 </button>
+    <button id="mainBtn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        작은 시작다짐하기
+    </button>
+
+    <!-- 다짐입력 팝업 -->
+    <!--다짐 입력 팝업-->
+    <section style="text-align:center">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <section id="viewPop1" class="viewPopup on">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>
+                                작은 시작 다짐하기
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                            <textarea placeholder="작은시작하기" style="height:300px;width:100%;text-align:center;display:inline-block;" ng-model="promiseContent"></textarea>
+                        </div>
+                        <div class="modal-footer" style="text-align:center">
+                            <button id="promiseInputBtn" type="button" class="btn btn-default">확인</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="viewPop2" class="viewPopup">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>
+                                작은시작 다짐확인
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                            <h3>{{promiseContent}}</h3>
+                            <p>당신의 작은 시작을 응원합니다.</p>
+                        </div>
+                        </div>
+                    </section>
+                        <script>
+                            var Day1 = "밥 잘먹기";
+                            var Day2 = "하루에 책읽기";
+                            var Day3 = "";
+                            alert(new Date().getDate());
+                            $(window).load(function () {
+
+                                if (Day1 == null) {
+                                    alert("hi1");
+                                    document.getElementById("home-tab").disabled = true;
+                                } else if (Day2 == null) {
+                                    alert("hi2");
+                                    document.getElementById("profile-tab").disabled = true;
+                                } else if (Day3 == "") {
+                                    alert("hi3");
+                                    document.getElementById("messages-tab").disabled = true;
+                                } else {
+                                    alert("Day1 = " + Day1 + " Day2 = " + Day2 + " Day3 = " + Day3);
+                                }
+                            });
+
+
+                        </script>
 </body>
 </html>
