@@ -1,26 +1,74 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="introback"style="height:100%">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
+    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
 
     <!--
         아래의 메타 태그의 콘텐츠 보안 정책을 필요에 따라 사용자 지정하세요. 인라인 JavaScript를 사용하려면 'unsafe-inline'을 default-src에 추가하세요.
         자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=617521을 참조하세요.
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-    <title>SeeddayApp</title>
+    
+        <title>SeeddayApp</title>
 
     <!-- SeeddayApp 참조 -->
     <link href="css/index.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0", target-densitydpi="device-dpi">
+    <link href="css/Seedday.css" rel="stylesheet" />
+    <script src="scripts/framework/angular.min.js"></script>
+
 </head>
-<body>
-    <p>안녕하세요? 응용 프로그램이 준비되었습니다!</p>
+<body style="height:100%;margin:0px;overflow:hidden">
+    <div id="mainContent">
+        <section style="text-align:center">
+            <img class="mainImage" src="images/intro_image.png" />
+        </section>
+        <section style="text-align:center">
+            <p class="mainText">What's your<br />'Start Small'?</p>
+            <p class="subText">당신의 작은 시작은 무엇입니까?</p>
+        </section>
+    </div>
+
+    <div class="bottomBtn">
+            <p><img src="images/plusImage.png" />작은시작 다짐하기</p>
+    </div>
+
 
     <!-- Cordova 참조이며 앱이 빌드되면 앱에 추가됩니다. -->
+    <script type="text/javascript">
+        //터치 이벤트 핸들러
+        function eventHandler(event, selector) {
+            event.stopPropagation();
+            event.preventDefault();
+            if (event.type === 'touchend') {
+                selector.off('click');
+            }
+        }
+
+        //크기 조정
+        $( window ).load(function(){
+            var contentHeight = $("#mainContent").outerHeight();
+            var contentWidth = $("#mainContent").outerWidth();
+            $("#mainContent").css({
+                "margin-top": -contentHeight / 2,
+                "margin-left": -contentWidth/2
+            });
+        });
+
+        //하단 버튼 클릭 시 애니메이션
+        $('.bottomBtn').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            $('.bottomBtn').css({
+                "-webkit-animation-name": 'downBtn',
+                "-webkit-animation-delay": '0s'
+
+            });
+        });
+    </script>
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
-
     <script src="scripts/index.js"></script>
+
 </body>
 </html>
