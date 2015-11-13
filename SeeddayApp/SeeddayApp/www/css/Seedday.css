@@ -23,7 +23,7 @@ font-family: 'Noto Sans KR', sans-serif;
         -webkit-animation-delay:1s;
         -webkit-animation-fill-mode: forwards       
     }
-    .bottomBtn p{color:#662ac3;font-size:21px;font-weight:bold;}ㅎㄹ
+    .bottomBtn p{color:#662ac3;font-size:21px;font-weight:bold;}
     .bottomBtn img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
     @-webkit-keyframes upBtn {
     from {bottom:-76px}
