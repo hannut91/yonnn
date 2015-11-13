@@ -8,24 +8,12 @@
     
     <!-- 자바스크립트 -->
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    <!--<script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>-->
     <script src="scripts/framework/angular.min.js"></script>
 
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/Seedday.css" rel="stylesheet" />
-    <script type="text/javascript">
-        //크기 조정
 
-        $(document).on("pagecreate", function () {
-            var contentHeight = $("#mainContent").outerHeight();
-            var contentWidth = $("#mainContent").outerWidth();
-            $("#mainContent").css({
-                "margin-top": -contentHeight / 2,
-                "margin-left": -contentWidth / 2
-            });
-        });
-
-    </script>
 </head>
 <body style="height:100%;margin:0px;overflow:hidden">
 
@@ -84,6 +72,7 @@
         //하단 버튼 클릭 시 애니메이션
         $('.bottomBtn').on('touchend click', function (event) {
             eventHandler(event, $(this));
+            //실제 작동하는 코드
             $('.bottomBtn').css({
                 "-webkit-animation-name": 'downBtn',
                 "-webkit-animation-delay": '0s'
@@ -97,6 +86,15 @@
                 "margin-top": -popupHeight / 2
             });
             $('<div id="blind_box"></div>').css('opacity', 0.7).appendTo('body');
+        });
+
+        $(document).ready( function () {
+            var contentHeight = $("#mainContent").outerHeight();
+            var contentWidth = $("#mainContent").outerWidth();
+            $("#mainContent").css({
+                "margin-top": -contentHeight / 2,
+                "margin-left": -contentWidth / 2
+            });
         });
     </script>
 
