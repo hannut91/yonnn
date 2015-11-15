@@ -8,7 +8,7 @@
     
     <!-- 자바스크립트 -->
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    <!--<script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>-->
     <script src="scripts/framework/angular.min.js"></script>
 
     <link href="css/index.css" rel="stylesheet" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
         //크기 조정
 
-        $(document).on("pagecreate", function () {
+        $(document).ready(function () {
             var contentHeight = $("#mainContent").outerHeight();
             var contentWidth = $("#mainContent").outerWidth();
             $("#mainContent").css({
