@@ -8,6 +8,7 @@
   <vs:features />
   <preference name="SplashScreen" value="screen" />
   <preference name="windows-target-version" value="8.1" />
+  <preference name="DisallowOverscroll" value="true" />
   <!-- Support for Cordova 5.0.0 plugin system -->
   <plugin name="cordova-plugin-whitelist" version="1" />
   <allow-intent href="http://*/*" />
@@ -104,4 +105,6 @@
   <platform name="wp8">
     <splash src="res/screens/wp8/SplashScreenImage.jpg" width="480" height="800" />
   </platform>
+  <vs:plugin name="cordova-plugin-whitelist" version="1.0.0" />
+  <preference name="deployment-target" value="7.1" />
 </widget>

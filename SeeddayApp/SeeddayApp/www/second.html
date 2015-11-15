@@ -1,77 +1,122 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="introback" style="height:100%">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js">
     </script>
     <script src="scripts/framework/angular.min.js"></script>
-    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <!--
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-    <!-- 부가적인 테마 -->
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>-->
+    <link href="css/second.css" rel="stylesheet" />
+    <script type="text/javascript">
+        //크기 조정
+
+        $(document).ready(function () {
+            var contentHeight = $("#mainContent").outerHeight();
+            var contentWidth = $("#mainContent").outerWidth();
+            $("#mainContent").css({
+                "margin-top": -contentHeight / 2,
+                "margin-left": -contentWidth / 2
+            });
+
+            //탭 자바 스크립트
+            var activeTabIndex = -1;
+            var tabNames = ["html", "javascript", "css"];
+
+            $(".tab-menu > li").click(function (e) {
+                for (var i = 0; i < tabNames.length; i++) {
+                    if (e.target.id == tabNames[i]) {
+                        activeTabIndex = i;
+                    } else {
+                        $("#" + tabNames[i]).removeClass("active");
+                        $("#" + tabNames[i] + "-tab").css("display", "none");
+                    }
+                }
+                $("#" + tabNames[activeTabIndex] + "-tab").fadeIn();
+                $("#" + tabNames[activeTabIndex]).addClass("active");
+                return false;
+            });
+        });
+
+    </script>
+
 </head>
 <body>
-    <div>콘텐츠 위치</div>
-    <div role="tabpanel">
+ 
 
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs nav-justified" role="tablist">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" aria-expanded="true" role="tab" id="home-tab" data-toggle="tab">DAY-1</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" aria-expanded="false" role="tab" id="profile-tab" data-toggle="tab">DAY-2</a></li>
-            <li role="presentation" class="disabled"><a href="#messages" aria-controls="messages" aria-expanded="false" role="tab" id="messages-tab" data-toggle="tab">DAY-3</a></li>
-
+    <div id="tab-container">
+        <ul class="tab-menu">
+            <li id="html" class="active">HTML</li>
+            <li id="css">CSS</li>
+            <li id="javascript">Javascript</li>
         </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab"> 첫째날 </div>
-            <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab"> 둘째날 </div>
-            <div role="tabpanel" class="tab-pane fade" id="messages" aria-labelledby="messages-tab"> 셋째날</div>
+        <div class="clear"></div>
+        <div class="tab-top-border"></div>
+        <div id="html-tab" class="tab-content active">
+            <h1>
+                HTML</h2>
+                <p>This links to <a href="http://en.wikipedia.org/wiki/1995">1995</a> when HTML made sense.</p>
         </div>
-
+        <div id="css-tab" class="tab-content">
+            <h1>Stylin&#39;</h1>
+            <p>You should check out the <a href="http://www.csszengarden.com/">Zen Garden</a>.</p>
+        </div>
+        <div id="javascript-tab" class="tab-content">
+            <h1>Javascript ninjas</h1>
+            <p>
+                We will teach you how to be a web <a href="http://www.amazon.com/Technical-University-Recruiting-Careers/b?ie=UTF8&node=239379011">ninja</a>. Your Javascript skills
+                will actually be so extreme you will be forbidden from leaving
+                the country due to arms export laws.
+            </p>
+        </div>
     </div>
-    <!-- 실천기록하기 버튼 -->
-    <button id="mainBtn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-        오늘의 실천 기록하기
-    </button>
-    <!-- 날짜 출력 -->
-    <script>
+     <script>
 
-        var dt = new Date();
-        var month = dt.getMonth() + 1;
-        var day = dt.getDate();
-        var year = dt.getFullYear();
-        document.write(year + '년 ' + month + '월 ' + day + '일 ');
-
-    </script> 
-                        
-    <!--<script>
-                            var Day1 = "밥 잘먹기";
-                            var Day2 = "하루에 책읽기";
-                            var Day3 = "";
-                            alert(new Date().getDate());
-                            $(window).load(function () {
-
-                                if (Day1 == null) {
-                                    alert("hi1");
-                                    document.getElementById("home-tab").disabled = true;
-                                } else if (Day2 == null) {
-                                    alert("hi2");
-                                    document.getElementById("profile-tab").disabled = true;
-                                } else if (Day3 == "") {
-                                    alert("hi3");
-                                    document.getElementById("messages-tab").disabled = true;
-                                } else {
-                                    alert("Day1 = " + Day1 + " Day2 = " + Day2 + " Day3 = " + Day3);
-                                }
-                            });
+       //터치 이벤트 핸들러
+        function eventHandler(event, selector) {
+            event.stopPropagation();
+            event.preventDefault();
+            if (event.type === 'touchend') {
+                selector.off('click');
+            }
+        }
 
 
-                        </script>-->
+    </script>
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
 </html>
+
+<!--<script>
+                        var Day1 = "밥 잘먹기";
+                        var Day2 = "하루에 책읽기";
+                        var Day3 = "";
+                        alert(new Date().getDate());
+                        $(window).load(function () {
+
+                            if (Day1 == null) {
+                                alert("hi1");
+                                document.getElementById("home-tab").disabled = true;
+                            } else if (Day2 == null) {
+                                alert("hi2");
+                                document.getElementById("profile-tab").disabled = true;
+                            } else if (Day3 == "") {
+                                alert("hi3");
+                                document.getElementById("messages-tab").disabled = true;
+                            } else {
+                                alert("Day1 = " + Day1 + " Day2 = " + Day2 + " Day3 = " + Day3);
+                            }
+                        });
+
+
+                    </script>-->
