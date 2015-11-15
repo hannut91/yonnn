@@ -52,7 +52,7 @@ font-family: 'Noto Sans KR', sans-serif;
     .popupView1.on .popupView1Btn p{color:#ffffff;font-size:16px;font-weight:bold;margin:0px;padding:20px 0px}
     .popupView1 h1{margin:60px 0px 0px 0px;font-size:26px;font-weight:bold;text-decoration-style:solid}
     .popupView1 .popupText1{border-bottom-width:3px;border-bottom-style:solid;padding-bottom:8px}
-
+    .popupView1.on p{color:#ff0000}
 
     .popupView1 input{margin:40px 0px 40px 0px;width:230px;background:#ffffff;text-align:center;font-size:14px;border-top-style:none;border-left-style:none;border-right-style:none;padding:9px}
     .popupView1 .popupDeco{position:relative;width:41px;height:46px}
