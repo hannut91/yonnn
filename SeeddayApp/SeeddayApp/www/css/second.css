@@ -27,45 +27,42 @@ a {
     list-style: none;
     list-style-position: outside;
     width: 100%;
+    padding:0px;
 }
 #tab-container ul.tab-menu li{
     display: block;
     float: left;
     position: relative;
-    font-weight: 700;
-    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    padding: 10px 0px 10px 0px;
     background: #662ac3;
-    border: 1px solid #ddc;
-    border-bottom: none;
-    border-width: 1px;
     color:#9079bc;
     cursor: default;
-    height: 45px;
-    width:auto;
+    width:33.333333333333333333333333%;
     text-align: center;
+    font-size:16px;
+   
 
 
 }
 #tab-container ul.tab-menu li.active{
     background: #ffffff;
     color: #662ac3;
-    height: 45px;
-    border-bottom: 0;
     text-align: center;
+
 }
-.tab-top-border {
-    border-bottom: 1px solid #d0ccc9;
-}
+
 .tab-content{
     margin: 0 auto;
     background: #efefef;
     background: #fff;
-    border-top-style: none;
     text-align: center;
-    padding: 10px;
     display: none;
-    height: 138px;
 }
 #tab-container div.active{
     display: block;
+}
+p {
+    font-size:15px;
+    color:#7b7b7b;
 }

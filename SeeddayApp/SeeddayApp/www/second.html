@@ -15,19 +15,12 @@
 
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>-->
+    <link href="css/Seedday.css" rel="stylesheet" />
     <link href="css/second.css" rel="stylesheet" />
     <script type="text/javascript">
         //크기 조정
 
         $(document).ready(function () {
-            var contentHeight = $("#mainContent").outerHeight();
-            var contentWidth = $("#mainContent").outerWidth();
-            $("#mainContent").css({
-                "margin-top": -contentHeight / 2,
-                "margin-left": -contentWidth / 2
-            });
-
-            //탭 자바 스크립트
             var activeTabIndex = -1;
             var tabNames = ["Day1", "Day2", "Day3"];
 
@@ -44,7 +37,20 @@
                 $("#" + tabNames[activeTabIndex]).addClass("active");
                 return false;
             });
+            document.getElementById("Day1Month").innerHTML = localStorage.getItem("curMonth");
+            document.getElementById("Day2Month").innerHTML = localStorage.getItem("curMonth");
+            document.getElementById("Day3Month").innerHTML = localStorage.getItem("curMonth");
+            document.getElementById("Day1Day").innerHTML = parseInt(localStorage.getItem("curDate"));
+            document.getElementById("Day2Day").innerHTML = parseInt(localStorage.getItem("curDate")) + 1;
+            document.getElementById("Day3Day").innerHTML = parseInt(localStorage.getItem("curDate")) + 2;
+
         });
+            //탭 자바 스크립트
+
+            
+           // $('#Day1').attr('disabled', true); //add
+            //$('#tab_c a').removeAttr('disabled'); //remove
+
 
     </script>
 
@@ -61,18 +67,22 @@
         <div class="clear"></div>
         <div class="tab-top-border"></div>
         <div id="Day1-tab" class="tab-content active">
-            <h1>2015년 11월 16일</h1>
-                <p>첫쨰날 일기</p>
+            <p class="mainText1"><span id="Day1Month">11</span>월 <span id="Day1Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+            <div class="mainBtn1">
+                <p><img src="images/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+            </div>
         </div>
         <div id="Day2-tab" class="tab-content">
-            <h1>2015년 11월 17일</h1>
-            <p>둘째날 일기</p>
+            <p class="mainText1"><span id="Day2Month">11</span>월 <span id="Day2Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+            <div class="mainBtn1">
+                <p><img src="images/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+            </div>
         </div>
         <div id="Day3-tab" class="tab-content">
-            <h1>2015년 11월 18일</h1>
-            <p>
-                셋쨰날일기
-            </p>
+            <p class="mainText1"><span id="Day3Month">11</span>월 <span id="Day3Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+            <div class="mainBtn1">
+                <p><img src="images/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+            </div>
         </div>
     </div>
      <script>
@@ -86,7 +96,7 @@
             }
         }
 
-
+      
     </script>
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>

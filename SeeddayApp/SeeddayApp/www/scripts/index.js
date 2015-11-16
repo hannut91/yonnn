@@ -6,12 +6,10 @@
     "use strict";
     if (localStorage.getItem("Day1") == null
             && localStorage.getItem("Day2") == null
-            && localStorage.getItem("Day3") == null
-            && localStorage.getItem("curDay") == null) {
+            && localStorage.getItem("Day3") == null){
         window.localStorage.setItem('Day1', "");
         window.localStorage.setItem('Day2', "");
         window.localStorage.setItem('Day3', "");
-        window.localStorage.setItem('curDay', "");
     }
     else {
     }
