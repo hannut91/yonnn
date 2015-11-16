@@ -28,8 +28,6 @@
                 "margin-left": -contentWidth / 2
             });
         });
-
-
     </script>
 </head>
 <body style="height:100%;margin:0px;overflow:hidden">
@@ -54,7 +52,7 @@
     <!--//중앙 이미지 및 텍스트-->
 
     <!--하단 버튼-->
-    <div class="bottomBtn" data-toggle="modal" data-target="#myModal">
+    <div class="bottomBtn">
             <p><img src="images/plusImage.png" />작은시작 다짐하기</p>
     </div>
     <!--//하단 버튼-->
@@ -83,12 +81,9 @@
             <h1><span class="popupText1">작은시작 다짐 확인 </span></h1>
             <h3>{{promiseContent}}</h3>
             <p>당신의 시작을 응원합니다</p>
-            <a href="second.html" data-role="button">확인</a>
-          <!--
           <section id="popupView2BtnId" class="popupView1Btn">
               <p>확인</p>
           </section>
-          -->
       </section>  
 
     <!--//다짐 기록하기 팝업-->
@@ -141,7 +136,9 @@
         $('#popupView2BtnId').on('touchend click', function (event) {
             eventHandler(event, $(this));
             location = "second.html";
-
+            //현재 달, 날짜 저장하기
+            window.localStorage.setItem('curMonth', new Date().getMonth()+1);
+            window.localStorage.setItem('curDate', new Date().getDate());
         });
 
             $(document).ready(function () {
