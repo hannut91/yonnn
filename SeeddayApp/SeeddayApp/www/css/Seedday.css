@@ -66,6 +66,9 @@ font-family: 'Noto Sans KR', sans-serif;
      .mainBtn1{width:100%;height:73px;background-color:#7336d0;border-radius:0px 0px 3px 3px;}
      .mainBtn1 p{color:#ffffff;font-size:16px;font-weight:bold;margin:0px;padding:20px 0px;}
      .mainBtn1 img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
+     .mainBtn2{width:100%;height:73px;background-color:#7336d0;border-radius:0px 0px 3px 3px;}
+     .mainBtn2 p{color:#ffffff;font-size:16px;font-weight:bold;margin:0px;padding:20px 0px;opacity:0.1}
+     .mainBtn2 img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
      .mainText1{padding:50px 0px;margin:0px}
 }
 @media screen and (min-width: 321px) and (max-width: 480px) {
