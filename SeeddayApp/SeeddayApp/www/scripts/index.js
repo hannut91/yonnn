@@ -12,11 +12,8 @@
         window.localStorage.setItem('Day2', "");
         window.localStorage.setItem('Day3', "");
         window.localStorage.setItem('curDay', "");
-        alert("if");
     }
     else {
-        location.href = "second.html";
-        alert("else");
     }
 
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
