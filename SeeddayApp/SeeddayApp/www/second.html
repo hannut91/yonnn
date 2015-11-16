@@ -56,8 +56,73 @@
 
 </head>
 <body>
- 
+    <!--DAY1 페이지 작성 팝업-->
+    <div id="popupView3Id" class="popupView1">
+        <div class="popupDecoWrap">
+            <img class="popupDeco" src="images/popup_deco.png" />
+            <h2 class="popupDecoText">Day-1</h2>
+        </div>
+        <h1><span class="popupText1">실천기록하기</span></h1>
 
+        <input type="text" placeholder="여기를 눌러 실천기록을 작성해주세요" ng-model="promiseContent" />
+        <section id="popupView2BtnId" class="popupView1Btn">
+            <p>확인</p>
+        </section>
+    </div>
+    <!--DAY1 페이지 작성 팝업-->
+    <!--DAY1 페이지 성공 팝업-->
+    <div id="popupView4Id" class="popupView1">
+        <div class="popupDecoWrap">
+            <img class="popupDeco" src="images/popup_deco.png" />
+            <h2 class="popupDecoText">Day-1</h2>
+        </div>
+        <h1><span class="popupText1">오늘의 실천성공</span></h1>
+
+        <p>식물에게 물을 듬뿍 주었습니다.</br>작은시작이 싹을 틔웠어요!</p>
+        <section id="popupView1BtnId" class="popupView1Btn">
+            <p>확인</p>
+        </section>
+    </div>
+    <!--DAY1 페이지 성공 팝업-->
+    <!--보상신청 팝업-->
+    <div id="popupView5Id" class="popupView1">
+        <div class="popupDecoWrap">
+            <img class="popupDeco" src="images/popup_deco.png" />
+            <h2 class="popupDecoText">Day-3</h2>
+        </div>
+        <h1><span class="popupText1">작은시작 실천성공</span></h1>
+
+        <p>
+            작은시작실천을 성공하신 분께</br>허브키우기 KIT를 무료로 보내드립니다.
+            </br>
+            </br>
+            [다음]버튼을 누르시면</br>주소입력페이지로 이동됩니다.
+        </p>
+        <section id="popupView1BtnId" class="popupView1Btn">
+            <p>다음</p>
+        </section>
+    </div>
+    <!--보상신청 팝업-->
+    <!--예외처리 시간초과 팝업-->
+    <div id="popupView6Id" class="popupView1">
+        <div class="popupDecoWrap">
+            <img class="popupDeco" src="images/popup_deco.png" />
+            <h2 class="popupDecoText">Day-3</h2>
+        </div>
+        <h1><span class="popupText1">작은시작 시간초과</span></h1>
+
+        <p>
+            아쉽게도 오늘의 실천을 약속한</br>시간이 지나버렸습니다.
+            </br>
+            지금 다시 시작해보세요.
+        </p>
+        <section id="popupView1BtnId" class="popupView1Btn">
+            <p>다시 시작하기</p>
+        </section>
+    </div>
+    <!--예외처리 시간초과 팝업-->
+ 
+    <!--Day 탭-->
     <div id="tab-container">
         <ul class="tab-menu">
             <li id="Day1" class="active">DAY-1</li>
@@ -85,6 +150,7 @@
             </div>
         </div>
     </div>
+    <!--Day 탭-->
      <script>
 
        //터치 이벤트 핸들러
@@ -96,7 +162,55 @@
             }
         }
 
-      
+        //하단 버튼 클릭 시 애니메이션
+        $('.mainBtn1').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            if ($('#Day1').hasClass("active")) {
+                document.getElementsByClassName("popupDecoText").innerHTML = "Day-33331";
+            }
+            else if ($('#Day2').hasClass("active")) {
+                document.getElementsByClassName("popupDecoText").innerHTML = "Day-3332";
+            }
+            else if ($('#Day3').hasClass("active")) {
+                document.getElementsByClassName("popupDecoText").innerHTML = "Day-3";
+            }
+
+            //실제 작동하는 코드
+            $('.mainBtn1').css({
+                "-webkit-animation-name": 'downBtn',
+                "-webkit-animation-delay": '0s'
+            });
+            $('#popupView3Id').addClass("on");
+            var popupWidth = $('#popupView3Id').outerWidth();
+            var popupHeight = $('#popupView3Id').outerHeight();
+            $('#popupView3Id').css({
+                "margin-left": -popupWidth / 2,
+                "margin-top": -popupHeight / 2
+            });
+
+            $('<div id="blind_box"></div>').css('opacity', 0.7).appendTo('body');
+            
+        });
+
+        // 실천기록하기 후 확인버튼 클릭시
+        $('#popupView2BtnId').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            //유효성 검사 (작성안할시 return)
+            if ($('#popupView3Id input').val() != "") {
+                $('#popupView3Id').removeClass("on");
+                $('#popupView4Id').addClass("on");
+                var popupWidth = $('#popupView4Id').outerWidth();
+                var popupHeight = $('#popupView4Id').outerHeight();
+                $('#popupView4Id').css({
+                    "margin-left": -popupWidth / 2,
+                    "margin-top": -popupHeight / 2
+                });
+            }
+            else {
+                alert("내용을 입력해주세요.");
+            }
+        });
+
     </script>
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
