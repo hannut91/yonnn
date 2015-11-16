@@ -10,13 +10,17 @@
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
     <!--<script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>-->
     <script src="scripts/framework/angular.min.js"></script>
-
+    <script type="text/javascript" src="scripts/splashscreen.js"></script>
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/Seedday.css" rel="stylesheet" />
+
+
     <script type="text/javascript">
         //크기 조정
-
         $(document).ready(function () {
+            setTimeout(function () {
+                navigator.splashscreen.hide();
+            }, 2000);
             var contentHeight = $("#mainContent").outerHeight();
             var contentWidth = $("#mainContent").outerWidth();
             $("#mainContent").css({
@@ -24,6 +28,7 @@
                 "margin-left": -contentWidth / 2
             });
         });
+
 
     </script>
 </head>
@@ -56,18 +61,36 @@
 
     <!--다짐 기록하기 팝업-->
     
-    <div class="popupView1">
+    <div id="popupView1Id"class="popupView1">
         <div class="popupDecoWrap">
             <img class="popupDeco" src="images/popup_deco.png" />
             <h2 class="popupDecoText">D-Day</h2>
         </div>
-            <h1><span class="popupText1">작은다짐하기</span></h1>
+            <h1><span class="popupText1">작은시작 다짐하기</span></h1>
  
-        <input type="text" placeholder="여기를 눌러 작은다짐을 작성해주세요"/>
-        <section class="popupView1Btn">
+        <input type="text" placeholder="여기를 눌러 작은다짐을 작성해주세요" ng-model="promiseContent"/>
+        <section id="popupView1BtnId" class="popupView1Btn">
             <p>확인</p>
         </section>
     </div>
+
+
+      <section id="popupView2Id" class="popupView1">
+          <div class="popupDecoWrap">
+              <img class="popupDeco" src="images/popup_deco.png" />
+              <h2 class="popupDecoText">D-Day</h2>
+          </div>
+            <h1><span class="popupText1">작은시작 다짐 확인 </span></h1>
+            <h3>{{promiseContent}}</h3>
+            <p>당신의 시작을 응원합니다</p>
+            <a href="second.html" data-role="button">확인</a>
+          <!--
+          <section id="popupView2BtnId" class="popupView1Btn">
+              <p>확인</p>
+          </section>
+          -->
+      </section>  
+
     <!--//다짐 기록하기 팝업-->
 
     <script type="text/javascript">
@@ -84,20 +107,58 @@
         //하단 버튼 클릭 시 애니메이션
         $('.bottomBtn').on('touchend click', function (event) {
             eventHandler(event, $(this));
+            //실제 작동하는 코드
             $('.bottomBtn').css({
                 "-webkit-animation-name": 'downBtn',
                 "-webkit-animation-delay": '0s'
 
             });
-            $('.popupView1').addClass("on");
-            var popupWidth = $('.popupView1').outerWidth();
-            var popupHeight = $('.popupView1').outerHeight();
-            $('.popupView1').css({
+            $('#popupView1Id').addClass("on");
+            var popupWidth = $('#popupView1Id').outerWidth();
+            var popupHeight = $('#popupView1Id').outerHeight();
+            $('#popupView1Id').css({
                 "margin-left": -popupWidth / 2,
                 "margin-top": -popupHeight / 2
             });
+
             $('<div id="blind_box"></div>').css('opacity', 0.7).appendTo('body');
         });
+
+        // 다짐 작성후 확인버튼 클릭시
+        $('#popupView1BtnId').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            $('#popupView1Id').removeClass("on");
+            $('#popupView2Id').addClass("on");
+            var popupWidth = $('#popupView2Id').outerWidth();
+            var popupHeight = $('#popupView2Id').outerHeight();
+            $('#popupView2Id').css({
+                "margin-left": -popupWidth / 2,
+                "margin-top": -popupHeight / 2
+            });
+        });
+
+        //버튼 클릭시 지정한 페이지로 이동
+        $('#popupView2BtnId').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            location = "second.html";
+
+        });
+
+            $(document).ready(function () {
+                var contentHeight = $("#mainContent").outerHeight();
+                var contentWidth = $("#mainContent").outerWidth();
+                $("#mainContent").css({
+                    "margin-top": -contentHeight / 2,
+                    "margin-left": -contentWidth / 2
+                });
+            });
+
+        });
+        //앵귤러js 사용하기 위해 선언
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['app']);
+        });
+        angular.module('app', []);
     </script>
 
     <script src="cordova.js"></script>

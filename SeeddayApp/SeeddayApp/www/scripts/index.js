@@ -4,15 +4,29 @@
 // 그런 다음 JavaScript 콘솔에서 "window.location.reload()"를 실행합니다.
 (function () {
     "use strict";
+    if (localStorage.getItem("Day1") == null
+            && localStorage.getItem("Day2") == null
+            && localStorage.getItem("Day3") == null
+            && localStorage.getItem("curDay") == null) {
+        window.localStorage.setItem('Day1', "");
+        window.localStorage.setItem('Day2', "");
+        window.localStorage.setItem('Day3', "");
+        window.localStorage.setItem('curDay', "");
+    }
+    else {
+    }
 
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
     function onDeviceReady() {
+        navigator.splashscreen.show();
+        //사용할 데이터 초기화
+        
         // Cordova 일시 중지를 처리하고 이벤트를 다시 시작합니다.
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener( 'resume', onResume.bind( this ), false );
-        
-        // TODO: Cordova가 로드되었습니다. 여기서 Cordova가 필요한 모든 설치를 수행합니다.
+
+        // TODO: Cordova가 로드되었습니다. 여기서 Cordova가 필요한 모든 설치를 수행합니다._
     };
 
     function onPause() {
