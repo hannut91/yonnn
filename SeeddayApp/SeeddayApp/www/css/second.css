@@ -19,8 +19,6 @@ a {
 #tab-container{
     position:fixed;
     bottom:0px;
-    font-size: 12px;
-    line-height:14px;
     width: 100%;
     overflow: hidden;
 }
@@ -36,22 +34,24 @@ a {
     position: relative;
     font-weight: 700;
     padding: 5px 10px 5px 10px;
-    background: #eee;
+    background: #662ac3;
     border: 1px solid #ddc;
     border-bottom: none;
     border-width: 1px;
     color:#9079bc;
     cursor: default;
-    height: 100px;
+    height: 45px;
     width:auto;
+    text-align: center;
 
 
 }
 #tab-container ul.tab-menu li.active{
     background: #ffffff;
     color: #662ac3;
-    height: 100px;
+    height: 45px;
     border-bottom: 0;
+    text-align: center;
 }
 .tab-top-border {
     border-bottom: 1px solid #d0ccc9;
@@ -60,7 +60,6 @@ a {
     margin: 0 auto;
     background: #efefef;
     background: #fff;
-    border: 1px solid #ddc;
     border-top-style: none;
     text-align: center;
     padding: 10px;
