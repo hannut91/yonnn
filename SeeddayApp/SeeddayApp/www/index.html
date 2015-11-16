@@ -10,10 +10,27 @@
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
     <!--<script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>-->
     <script src="scripts/framework/angular.min.js"></script>
-
+    <script type="text/javascript" src="scripts/splashscreen.js"></script>
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/Seedday.css" rel="stylesheet" />
 
+
+    <script type="text/javascript">
+        //크기 조정
+        $(document).ready(function () {
+            setTimeout(function () {
+                navigator.splashscreen.hide();
+            }, 2000);
+            var contentHeight = $("#mainContent").outerHeight();
+            var contentWidth = $("#mainContent").outerWidth();
+            $("#mainContent").css({
+                "margin-top": -contentHeight / 2,
+                "margin-left": -contentWidth / 2
+            });
+        });
+
+
+    </script>
 </head>
 <body style="height:100%;margin:0px;overflow:hidden">
 
@@ -140,7 +157,9 @@
         //버튼 클릭시 지정한 페이지로 이동
         $('#popupView2BtnId').on('touchend click', function (event) {
             eventHandler(event, $(this));
+            location = "second.html";
 
+        });
 
             $(document).ready(function () {
                 var contentHeight = $("#mainContent").outerHeight();
