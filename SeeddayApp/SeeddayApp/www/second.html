@@ -29,7 +29,7 @@
 
             //탭 자바 스크립트
             var activeTabIndex = -1;
-            var tabNames = ["html", "javascript", "css"];
+            var tabNames = ["Day1", "Day2", "Day3"];
 
             $(".tab-menu > li").click(function (e) {
                 for (var i = 0; i < tabNames.length; i++) {
@@ -54,27 +54,24 @@
 
     <div id="tab-container">
         <ul class="tab-menu">
-            <li id="html" class="active">HTML</li>
-            <li id="css">CSS</li>
-            <li id="javascript">Javascript</li>
+            <li id="Day1" class="active">DAY-1</li>
+            <li id="Day2">DAY-2</li>
+            <li id="Day3">DAY-3</li>
         </ul>
         <div class="clear"></div>
         <div class="tab-top-border"></div>
-        <div id="html-tab" class="tab-content active">
-            <h1>
-                HTML</h2>
-                <p>This links to <a href="http://en.wikipedia.org/wiki/1995">1995</a> when HTML made sense.</p>
+        <div id="Day1-tab" class="tab-content active">
+            <h1>2015년 11월 16일</h1>
+                <p>첫쨰날 일기</p>
         </div>
-        <div id="css-tab" class="tab-content">
-            <h1>Stylin&#39;</h1>
-            <p>You should check out the <a href="http://www.csszengarden.com/">Zen Garden</a>.</p>
+        <div id="Day2-tab" class="tab-content">
+            <h1>2015년 11월 17일</h1>
+            <p>둘째날 일기</p>
         </div>
-        <div id="javascript-tab" class="tab-content">
-            <h1>Javascript ninjas</h1>
+        <div id="Day3-tab" class="tab-content">
+            <h1>2015년 11월 18일</h1>
             <p>
-                We will teach you how to be a web <a href="http://www.amazon.com/Technical-University-Recruiting-Careers/b?ie=UTF8&node=239379011">ninja</a>. Your Javascript skills
-                will actually be so extreme you will be forbidden from leaving
-                the country due to arms export laws.
+                셋쨰날일기
             </p>
         </div>
     </div>

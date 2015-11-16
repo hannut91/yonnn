@@ -40,10 +40,10 @@ a {
     border: 1px solid #ddc;
     border-bottom: none;
     border-width: 1px;
-    color: #999;
+    color:#9079bc;
     cursor: default;
     height: 100px;
-    width:20px;
+    width:auto;
 
 
 }
@@ -64,10 +64,8 @@ a {
     border-top-style: none;
     text-align: center;
     padding: 10px;
-    padding-bottom: 20px;
-    font-size: 32px;
     display: none;
-    height: 300px;
+    height: 138px;
 }
 #tab-container div.active{
     display: block;
