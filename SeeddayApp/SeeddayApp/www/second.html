@@ -176,10 +176,12 @@
         <div class="clear"></div>
         <div class="tab-top-border"></div>
         <div id="Day1-tab" class="tab-content active">
-            <p class="mainText1"><span id="Day1Month">11</span>월 <span id="Day1Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+            <section id="temp">
+                <p class="mainText1" id="mainText1"><span id="Day1Month">11</span>월 <span id="Day1Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
             <div class="mainBtn1">
                 <p><img src="images/plusImage_white.png" /> 오늘의 실천 기록하기</p>
             </div>
+            </section>
         </div>
         <div id="Day2-tab" class="tab-content">
             <p class="mainText1"><span id="Day2Month">11</span>월 <span id="Day2Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
@@ -194,7 +196,13 @@
             </div>
         </div>
     </div>
-    <!--Day 탭-->
+
+    <div style="display:none">
+        <section id="change">
+            <p>바꿔치기 ㅎㅎ</p>
+        </section>
+    </div>
+
      <script>
 
        //터치 이벤트 핸들러
@@ -266,16 +274,26 @@
                     var popupWidth = $('#day3Success').outerWidth();
                     var popupHeight = $('#day3Success').outerHeight();
                     $('#day3Success').css({
-                        "margin-left": -popupWidth / 2,
-                        "margin-top": -popupHeight / 2
-                    });
-                }
+                    "margin-left": -popupWidth / 2,
+                    "margin-top": -popupHeight / 2
+                });
+            }
             }
             else {
                 alert("내용을 입력해주세요.");
             }
         });
 
+        //실천성공 클릭시 팝업 지우기
+        $('#popupView1BtnId').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            document.getElementById("blind_box").remove();
+            $('#popupView4Id').removeClass("on");
+            //탭 내용 변경
+            $("#temp").replaceWith($("#change"));
+           // document.getElementById("Day1-tab").innerHTML = $("#change").html;
+        });
+        
     </script>
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
