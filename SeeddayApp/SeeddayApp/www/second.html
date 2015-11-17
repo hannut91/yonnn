@@ -19,6 +19,16 @@
             //목표 값 가져와서 메인페이지에 보여주기
             document.getElementById("mainpageMidText").innerHTML = localStorage.getItem("goal");
 
+            /* 내가 원하는 값 먼저 띄워주기
+            $("#Day1").removeClass("active");
+            $("#Day1" + "-tab").css("display", "none");
+            $("#Day2").removeClass("active");
+            $("#Day2" + "-tab").css("display", "none");
+            $("#Day2").removeClass("active");
+            $("#Day2" + "-tab").css("display", "none");
+            $("#" + "Day3" + "-tab").fadeIn();
+            $("#" + "Day3").addClass("active");
+            */
             //날짜 계산해서 출력해주기
             var today = new Date(localStorage.getItem("curDate"));
             var tomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000));
