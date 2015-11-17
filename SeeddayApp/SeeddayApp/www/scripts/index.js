@@ -4,21 +4,14 @@
 // 그런 다음 JavaScript 콘솔에서 "window.location.reload()"를 실행합니다.
 (function () {
     "use strict";
-    if (localStorage.getItem("Day1") == null
-            && localStorage.getItem("Day2") == null
-            && localStorage.getItem("Day3") == null){
-        window.localStorage.setItem('Day1', "");
-        window.localStorage.setItem('Day2', "");
-        window.localStorage.setItem('Day3', "");
-    }
-    else {
+    if (localStorage.getItem('goal') != null) {
+        location = "second.html";
     }
 
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
     function onDeviceReady() {
         navigator.splashscreen.show();
-        //사용할 데이터 초기화
         
         // Cordova 일시 중지를 처리하고 이벤트를 다시 시작합니다.
         document.addEventListener( 'pause', onPause.bind( this ), false );
