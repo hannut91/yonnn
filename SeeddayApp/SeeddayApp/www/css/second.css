@@ -72,7 +72,7 @@ p {
     .mainPlant{width:69px;height:92px;position:absolute;top:-92px;left:125px}
     .mainpageMid {text-align:center;}
     .mainpageMid p{font-size:28px;text-overflow:ellipsis;font-weight:bold;color:#ffffff;margin:0px 14px;word-break:keep-all;text-decoration-style:solid}
-
+    .mainpageMid .mainText1{border-bottom-width:3px;border-bottom-style:solid;padding-bottom:0.2px;color:#ffffff;line-height:2}
 }
 @media screen and (min-width: 321px) and (max-width: 480px) {
   

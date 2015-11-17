@@ -65,7 +65,7 @@
 
         <!--중앙 텍스트-->
         <section class="mainpageMid">
-            <p>아침에 일어나서 스트레칭하기</p>
+            <h1><span class="mainText1">아침에 일어나서</br>스트레칭하기</span></h1>
         </section>
         <!--//중앙 텍스트-->
 
@@ -73,11 +73,11 @@
 
 
     </div>
-    <!--DAY1 페이지 작성 팝업-->
+    <!--오늘의 실천 기록하기 작성 팝업-->
     <div id="popupView3Id" class="popupView1">
         <div class="popupDecoWrap">
             <img class="popupDeco" src="images/popup_deco.png" />
-            <h2 class="popupDecoText">Day-1</h2>
+            <h2 id="decoDday" class="popupDecoText">Day-1</h2>
         </div>
         <h1><span class="popupText1">실천기록하기</span></h1>
 
@@ -86,21 +86,46 @@
             <p>확인</p>
         </section>
     </div>
-    <!--DAY1 페이지 작성 팝업-->
+    <!--오늘의 실천 기록하기 작성 팝업-->
     <!--DAY1 페이지 성공 팝업-->
-    <div id="popupView4Id" class="popupView1">
+    <div id="day1Success" class="popupView1">
         <div class="popupDecoWrap">
             <img class="popupDeco" src="images/popup_deco.png" />
             <h2 class="popupDecoText">Day-1</h2>
         </div>
         <h1><span class="popupText1">오늘의 실천성공</span></h1>
-
         <p>식물에게 물을 듬뿍 주었습니다.</br>작은시작이 싹을 틔웠어요!</p>
         <section id="popupView1BtnId" class="popupView1Btn">
             <p>확인</p>
         </section>
     </div>
     <!--DAY1 페이지 성공 팝업-->
+    <!--DAY2 페이지 성공 팝업-->
+    <div id="day2Success" class="popupView1">
+        <div class="popupDecoWrap">
+            <img class="popupDeco" src="images/popup_deco.png" />
+            <h2 class="popupDecoText">Day-2</h2>
+        </div>
+        <h1><span class="popupText1">오늘의 실천성공</span></h1>
+        <p>식물에게 햇살이 가득히 비칩니다.</br>작은시작이 줄기가 자랐어요</p>
+        <section id="popupView1BtnId" class="popupView1Btn">
+            <p>확인</p>
+        </section>
+    </div>
+    <!--DAY2 페이지 성공 팝업-->
+    <!--DAY3 페이지 성공 팝업-->
+    <div id="day3Success" class="popupView1">
+        <div class="popupDecoWrap">
+            <img class="popupDeco" src="images/popup_deco.png" />
+            <h2 class="popupDecoText">Day-3</h2>
+        </div>
+        <h1><span class="popupText1">오늘의 실천성공</span></h1>
+        <p>식물에게 영양분이 충분히 뿌려집니다.</br>작은시작이 활짝 피어났어요!</p>
+        <section id="popupView1BtnId" class="popupView1Btn">
+            <p>확인</p>
+        </section>
+    </div>
+    <!--DAY3 페이지 성공 팝업-->
     <!--보상신청 팝업-->
     <div id="popupView5Id" class="popupView1">
         <div class="popupDecoWrap">
@@ -157,13 +182,13 @@
         </div>
         <div id="Day2-tab" class="tab-content">
             <p class="mainText1"><span id="Day2Month">11</span>월 <span id="Day2Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
-            <div class="mainBtn2">
+            <div class="mainBtn1">
                 <p><img src="images/plusImage_white.png" /> 오늘의 실천 기록하기</p>
             </div>
         </div>
         <div id="Day3-tab" class="tab-content">
             <p class="mainText1"><span id="Day3Month">11</span>월 <span id="Day3Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
-            <div class="mainBtn2">
+            <div class="mainBtn1">
                 <p><img src="images/plusImage_white.png" /> 오늘의 실천 기록하기</p>
             </div>
         </div>
@@ -180,17 +205,18 @@
             }
         }
 
-        //하단 버튼 클릭 시 애니메이션
+        //하단 버튼 클릭 시 팝업 on
         $('.mainBtn1').on('touchend click', function (event) {
             eventHandler(event, $(this));
             if ($('#Day1').hasClass("active")) {
-                document.getElementsByClassName("popupDecoText").innerHTML = "Day-33331";
+                document.getElementById("decoDday").innerHTML = "Day-1";
             }
             else if ($('#Day2').hasClass("active")) {
-                document.getElementsByClassName("popupDecoText").innerHTML = "Day-3332";
+                document.getElementById("decoDday").innerHTML = "Day-2";
+
             }
             else if ($('#Day3').hasClass("active")) {
-                document.getElementsByClassName("popupDecoText").innerHTML = "Day-3";
+                document.getElementById("decoDday").innerHTML = "Day-3";
             }
 
             //실제 작동하는 코드
@@ -216,13 +242,33 @@
             //유효성 검사 (작성안할시 return)
             if ($('#popupView3Id input').val() != "") {
                 $('#popupView3Id').removeClass("on");
-                $('#popupView4Id').addClass("on");
-                var popupWidth = $('#popupView4Id').outerWidth();
-                var popupHeight = $('#popupView4Id').outerHeight();
-                $('#popupView4Id').css({
-                    "margin-left": -popupWidth / 2,
-                    "margin-top": -popupHeight / 2
-                });
+                if ($('#Day1').hasClass("active")) {
+                    $('#day1Success').addClass("on");
+                    var popupWidth = $('#day1Success').outerWidth();
+                    var popupHeight = $('#day1Success').outerHeight();
+                    $('#day1Success').css({
+                        "margin-left": -popupWidth / 2,
+                        "margin-top": -popupHeight / 2
+                    });
+                }
+                else if ($('#Day2').hasClass("active")) {
+                    $('#day2Success').addClass("on");
+                    var popupWidth = $('#day2Success').outerWidth();
+                    var popupHeight = $('#day2Success').outerHeight();
+                    $('#day2Success').css({
+                        "margin-left": -popupWidth / 2,
+                        "margin-top": -popupHeight / 2
+                    });
+                }
+                else if ($('#Day3').hasClass("active")) {
+                    $('#day3Success').addClass("on");
+                    var popupWidth = $('#day3Success').outerWidth();
+                    var popupHeight = $('#day3Success').outerHeight();
+                    $('#day3Success').css({
+                        "margin-left": -popupWidth / 2,
+                        "margin-top": -popupHeight / 2
+                    });
+                }
             }
             else {
                 alert("내용을 입력해주세요.");
