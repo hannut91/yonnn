@@ -2,25 +2,45 @@
 <html >
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js">
-    </script>
+    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="scripts/splashscreen.js"></script>
     <script src="scripts/framework/angular.min.js"></script>
-    <!--
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>-->
     <link href="css/Seedday.css" rel="stylesheet" />
     <link href="css/second.css" rel="stylesheet" />
     <script type="text/javascript">
-        //크기 조정
-
+        var tempfortest;
         $(document).ready(function () {
+            //splashscreen 가리기
+            setTimeout(function () {
+                navigator.splashscreen.hide();
+            }, 2000);
+
+            //목표 값 가져와서 메인페이지에 보여주기
+            document.getElementById("mainpageMidText").innerHTML = localStorage.getItem("goal");
+
+            /* 내가 원하는 값 먼저 띄워주기
+            $("#Day1").removeClass("active");
+            $("#Day1" + "-tab").css("display", "none");
+            $("#Day2").removeClass("active");
+            $("#Day2" + "-tab").css("display", "none");
+            $("#Day2").removeClass("active");
+            $("#Day2" + "-tab").css("display", "none");
+            $("#" + "Day3" + "-tab").fadeIn();
+            $("#" + "Day3").addClass("active");
+            */
+            //날짜 계산해서 출력해주기
+            var today = new Date(localStorage.getItem("curDate"));
+            var tomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000));
+            var aftertomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000*2));
+            document.getElementById("Day1Month").innerHTML = today.getMonth() + 1;
+            document.getElementById("Day2Month").innerHTML = tomorrow.getMonth() + 1;
+            document.getElementById("Day3Month").innerHTML = aftertomorrow.getMonth() + 1;
+            document.getElementById("Day1Day").innerHTML = today.getDate();
+            document.getElementById("Day2Day").innerHTML = tomorrow.getDate();
+            document.getElementById("Day3Day").innerHTML = aftertomorrow.getDate();
+
+            //Tab 컨트롤
             var activeTabIndex = -1;
             var tabNames = ["Day1", "Day2", "Day3"];
 
@@ -37,21 +57,9 @@
                 $("#" + tabNames[activeTabIndex]).addClass("active");
                 return false;
             });
-            document.getElementById("Day1Month").innerHTML = localStorage.getItem("curMonth");
-            document.getElementById("Day2Month").innerHTML = localStorage.getItem("curMonth");
-            document.getElementById("Day3Month").innerHTML = localStorage.getItem("curMonth");
-            document.getElementById("Day1Day").innerHTML = parseInt(localStorage.getItem("curDate"));
-            document.getElementById("Day2Day").innerHTML = parseInt(localStorage.getItem("curDate")) + 1;
-            document.getElementById("Day3Day").innerHTML = parseInt(localStorage.getItem("curDate")) + 2;
-
         });
-            //탭 자바 스크립트
-
-            
            // $('#Day1').attr('disabled', true); //add
             //$('#tab_c a').removeAttr('disabled'); //remove
-
-
     </script>
 
 </head>
@@ -65,13 +73,9 @@
 
         <!--중앙 텍스트-->
         <section class="mainpageMid">
-            <h1><span class="mainText1">아침에 일어나서</br>스트레칭하기</span></h1>
+            <p id="mainpageMidText">아침에 일어나서 스트레칭하기</p>
         </section>
         <!--//중앙 텍스트-->
-
-
-
-
     </div>
     <!--오늘의 실천 기록하기 작성 팝업-->
     <div id="popupView3Id" class="popupView1">
@@ -80,7 +84,6 @@
             <h2 id="decoDday" class="popupDecoText">Day-1</h2>
         </div>
         <h1><span class="popupText1">실천기록하기</span></h1>
-
         <input type="text" placeholder="여기를 눌러 실천기록을 작성해주세요" ng-model="promiseContent" />
         <section id="popupView2BtnId" class="popupView1Btn">
             <p>확인</p>
@@ -134,7 +137,6 @@
             <h2 class="popupDecoText">Day-3</h2>
         </div>
         <h1><span class="popupText1">작은시작 실천성공</span></h1>
-
         <p>
             작은시작실천을 성공하신 분께</br>허브키우기 KIT를 무료로 보내드립니다.
             </br>
@@ -146,6 +148,7 @@
         </section>
     </div>
     <!--보상신청 팝업-->
+
     <!--예외처리 시간초과 팝업-->
     <div id="popupView6Id" class="popupView1">
         <div class="popupDecoWrap">
@@ -153,7 +156,6 @@
             <h2 class="popupDecoText">Day-3</h2>
         </div>
         <h1><span class="popupText1">작은시작 시간초과</span></h1>
-
         <p>
             아쉽게도 오늘의 실천을 약속한</br>시간이 지나버렸습니다.
             </br>
@@ -168,6 +170,16 @@
     <!--Day 탭-->
     <div id="tab-container">
         <img class="mainPlant"src="images/mainpage/mainpage_plant.png"/>
+        <img class="mainParticle1" src="images/mainpage/main_particle5.png" />
+        <img class="mainParticle2" src="images/mainpage/main_particle2.png" />
+        <img class="mainParticle3" src="images/mainpage/main_particle4.png" />
+        <img class="mainParticle4" src="images/mainpage/main_particle3.png" />
+        <img class="mainParticle5" src="images/mainpage/main_particle4.png" />
+        <img class="mainParticle6" src="images/mainpage/main_particle2.png" />
+        <img class="mainParticle7" src="images/mainpage/main_particle3.png" />
+        <img class="mainParticle8" src="images/mainpage/main_particle2.png" />
+        <img class="mainParticle9" src="images/mainpage/main_particle1.png"/>
+
         <ul class="tab-menu">
             <li id="Day1" class="active">DAY-1</li>
             <li id="Day2">DAY-2</li>
@@ -202,7 +214,7 @@
             <p>바꿔치기 ㅎㅎ</p>
         </section>
     </div>
-
+    <!--Day 탭-->
      <script>
 
        //터치 이벤트 핸들러
@@ -299,27 +311,3 @@
     <script src="scripts/platformOverrides.js"></script>
 </body>
 </html>
-
-<!--<script>
-                        var Day1 = "밥 잘먹기";
-                        var Day2 = "하루에 책읽기";
-                        var Day3 = "";
-                        alert(new Date().getDate());
-                        $(window).load(function () {
-
-                            if (Day1 == null) {
-                                alert("hi1");
-                                document.getElementById("home-tab").disabled = true;
-                            } else if (Day2 == null) {
-                                alert("hi2");
-                                document.getElementById("profile-tab").disabled = true;
-                            } else if (Day3 == "") {
-                                alert("hi3");
-                                document.getElementById("messages-tab").disabled = true;
-                            } else {
-                                alert("Day1 = " + Day1 + " Day2 = " + Day2 + " Day3 = " + Day3);
-                            }
-                        });
-
-
-                    </script>-->
