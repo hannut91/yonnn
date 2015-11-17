@@ -67,8 +67,6 @@ font-family: 'Noto Sans KR', sans-serif;
      .mainBtn1 p{color:#ffffff;font-size:16px;font-weight:bold;margin:0px;padding:20px 0px;}
      .mainBtn1 img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
      .mainText1{padding:50px 0px;margin:0px}
-
-
 }
 @media screen and (min-width: 321px) and (max-width: 480px) {
    .mainImage {width: 146px; height: 133px;}
