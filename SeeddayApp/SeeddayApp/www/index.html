@@ -142,7 +142,7 @@
         $('#popupView2BtnId').on('touchend click', function (event) {
             eventHandler(event, $(this));
             location = "second.html";
-            //현재 달, 날짜 저장하기
+        //현재 달, 날짜 저장하기
             window.localStorage.setItem('curMonth', new Date().getMonth()+1);
             window.localStorage.setItem('curDate', new Date().getDate());
         });
