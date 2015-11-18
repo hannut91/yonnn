@@ -17,7 +17,7 @@
             }, 2000);
 
             //목표 값 가져와서 메인페이지에 보여주기
-            document.getElementById("mainpageMidText").innerHTML = localStorage.getItem("goal");
+            document.getElementById("mainpageMidText").innerHTML = '<span class="mainText1">'+localStorage.getItem("goal")+'</span>';
 
             /* 내가 원하는 값 먼저 띄워주기
             $("#Day1").removeClass("active");
@@ -73,7 +73,7 @@
 
         <!--중앙 텍스트-->
         <section class="mainpageMid">
-            <p id="mainpageMidText">아침에 일어나서 스트레칭하기</p>
+            <p id="mainpageMidText"><span class="mainText1">아침에 일어나서 스트레칭하기</span></p>
         </section>
         <!--//중앙 텍스트-->
     </div>
