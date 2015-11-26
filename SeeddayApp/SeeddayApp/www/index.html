@@ -6,12 +6,10 @@
     <title>SeeddayApp</title>
     
     <!-- 자바스크립트 -->
-    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js">
-
-    </script>
+    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="scripts/splashscreen.js"></script>
     <script type="text/javascript" src="scripts/keyboard.js"></script>
-    <!-- CSS -->
+      <!-- CSS -->
     <link href="css/Seedday.css" rel="stylesheet" />
 
 </head>
@@ -61,6 +59,7 @@
             setTimeout(function () {
                 navigator.splashscreen.hide();
             }, 1000);
+            
         });
         //터치 이벤트 핸들러
         function eventHandler(event, selector) {
@@ -113,13 +112,18 @@
         $('#popupView2BtnId').on('touchend click', function (event) {
             eventHandler(event, $(this));
 
-            //목표, 달, 날짜 저장하기
+            /*목표, 달, 날짜 저장하기
             localStorage.setItem('goal',$('#goalInput').val());
             localStorage.setItem('curDate', new Date());
             location = "second.html";
+            */
+            var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
+            db.transaction(function (tx) {
+                tx.executeSql('INSERT INTO seedday (goal, curDate), VALUES(?,?)', [$('#goalInput').val(), new Date()]);
+            });
+            location="second.html";      
         });
-
-
+            
     </script>
 
     <script src="cordova.js"></script>

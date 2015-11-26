@@ -1,1 +1,22 @@
-(function(){"use strict";if(localStorage.getItem('goal')!=null){location="second.html";}document.addEventListener('deviceready',onDeviceReady.bind(this),false);function onDeviceReady(){navigator.splashscreen.show();document.addEventListener('pause',onPause,false);document.addEventListener('resume',onResume,false);};function onPause(){};function onResume(){};})();
+(function () {
+    "use strict";
+    /*
+    if (localStorage.getItem('goal') != null) {
+        location = "second.html";
+    }
+    */
+    document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+    function onDeviceReady() {
+        window.sqlitePlugin.openDatabase({ name: "seed.db" }, function (db) {
+            db.transaction(function (tx) {
+                tx.executeSql('CREATE TABLE IF NOT EXISTS seedday (id integer primary key, goal text, curDate text)');
+            });
+        });
+        navigator.splashscreen.show();
+        document.addEventListener('pause', onPause, false);
+        document.addEventListener('resume', onResume, false);
+        
+    };
+    function onPause() { };
+    function onResume() { };
+})();
