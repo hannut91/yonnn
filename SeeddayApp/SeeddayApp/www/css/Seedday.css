@@ -20,6 +20,93 @@
 .popupView1 .popupDecoWrap{position:absolute;top:-1px;left:14px;}
 .popupView1 .popupDecoWrap2{position:absolute;top:-1px;right:9px;}
 #blind_box{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;z-index:2;}
+.carousel5 li {
+    width:100%;
+    height:100%;
+    font-size:30px;
+    background-color: #fff;
+}
+.carousel-demo {
+    margin-top:41px;
+    margin-bottom:35px;
+    width:100%;
+    display:inline-block;
+    text-align: center;
+}
+ul[rn-carousel] {
+    width:60%;
+    height:90px;
+    margin: 0 auto;
+}
+ul[rn-carousel] {
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+  position: relative;
+  -webkit-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  }
+  ul[rn-carousel] > li {
+    color: black;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: visible;
+    vertical-align: top;
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: normal;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    display: inline-block; }
+.plantBottomLine{margin-bottom:0px;margin-top:0px;width:73px;color:#8f5ed9;border:1px solid #8f5ed9}
+.mainplant1{background:url(../images/mainPlant1.png) no-repeat center center;background-size:47px}
+.mainplant2{background:url(../images/mainPlant2.png) no-repeat center center;background-size:44px}
+.mainplant3{background:url(../images/mainPlant3.png) no-repeat center center;background-size:52.5px}
+.mainplant4{background:url(../images/mainPlant4.png) no-repeat center center;background-size:38.5px}
+.mainplant5{background:url(../images/mainPlant5.png) no-repeat center center;background-size:45px}
+.mainplant6{background:url(../images/mainPlant6.png) no-repeat center center;background-size:43px}
+.mainplant7{background:url(../images/mainPlant7.png) no-repeat center center;background-size:49.5px}
+.mainplant8{background:url(../images/mainPlant8.png) no-repeat center center;background-size:45.5px}
+.mainplant9{background:url(../images/mainPlant9.png) no-repeat center center;background-size:33px}
+.mainplant10{background:url(../images/mainPlant10.png) no-repeat center center;background-size:47.5px}
+.rn-carousel-control {
+  position: absolute;
+  top: 39%;
+  opacity: 0.3;
+  cursor: pointer;
+
+  }
+  .rn-carousel-control:hover {
+    opacity: 1; }
+  .rn-carousel-control.rn-carousel-control-prev {
+    left: 44px; 
+  }
+    .rn-carousel-control.rn-carousel-control-prev:before {
+    background:url('../images/plantLeft.png') no-repeat center center;
+    background-size: 12.5px;
+    padding:10px;
+    content:' ';
+    
+    }
+  .rn-carousel-control.rn-carousel-control-next {
+        right:44px; 
+    }
+    .rn-carousel-control.rn-carousel-control-next:before {
+        background:url('../images/plantRight.png') no-repeat center center;
+        background-size: 12.5px;
+        padding:10px;
+        content:' ';
+
+    }
+
 }
 @media screen and (min-width:321px) and (max-width:375px){.introback{background:url("../images/background.png") no-repeat center center fixed;background-size:cover;}
 .bottomBtn{width:100%;height:76px;position:fixed;bottom:0px;text-align:center;background-color:#ffffff;-webkit-animation-timing-function:ease;-webkit-animation-duration:0.5s;-webkit-animation-fill-mode:forwards}
