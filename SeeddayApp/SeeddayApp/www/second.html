@@ -135,9 +135,7 @@
     <!--예외처리 시간초과 팝업-->
     <!--Day 탭-->
     <div id="tab-container">
-        <div class="mainPlant">
-
-        </div>
+        <div id="mainPlant" class="mainPlant1"></div>
         <!--<img id="mainPlant"class="mainPlant" src="images/mainpage/mainpage_plant.png" />-->
         <img class="mainParticle1" src="images/mainpage/main_particle5.png" />
         <img class="mainParticle2" src="images/mainpage/main_particle2.png" />
@@ -196,6 +194,11 @@
             <p id="day3Content" class="daycontent"></p>
         </section>
         <section id="temp">
+            <div class="mainBtn1">
+                <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+            </div>
+        </section>
+        <section id="temp2">
             <div class="mainBtn1">
                 <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
             </div>
@@ -316,6 +319,7 @@
                 }
                 else if ($('#Day2').hasClass("active")) {
                     inDB("Day2", $("#actionInput").val());
+                    $("#actionInput").val("");
                     $('#day2Success').addClass("on");
                     var popupWidth = $('#day2Success').outerWidth();
                     var popupHeight = $('#day2Success').outerHeight();
@@ -326,6 +330,7 @@
                 }
                 else if ($('#Day3').hasClass("active")) {
                     inDB("Day3", $("#actionInput").val());
+                    $("#actionInput").val("");
                     $('#day3Success').addClass("on");
                     var popupWidth = $('#day3Success').outerWidth();
                     var popupHeight = $('#day3Success').outerHeight();
@@ -349,6 +354,8 @@
             //탭 내용 변경
             $("#tabWrap1").replaceWith($("#tabContent1"));
             document.getElementById("day1Content").innerHTML = Day1;
+            $("#mainPlant").removeAttr("class");
+            $("#mainPlant").addClass("mainPlant2");
         });
         //Day2 실천성공 클릭시 팝업 지우기
         $('#popupView1BtnId2').on('touchend click', function (event) {
@@ -358,6 +365,8 @@
             //탭 내용 변경
             $("#tabWrap2").replaceWith($("#tabContent2"));
             document.getElementById("day2Content").innerHTML = Day2;
+            $("#mainPlant").removeAttr("class");
+            $("#mainPlant").addClass("mainPlant3_" + (plantnumber + 1));
         });
          //Day3 실천성공 클릭시 팝업 지우기
         $('#popupView1BtnId3').on('touchend click', function (event) {
@@ -367,6 +376,8 @@
             //탭 내용 변경
             $("#tabWrap3").replaceWith($("#tabContent3"));
             document.getElementById("day3Content").innerHTML = Day3;
+            $("#mainPlant").removeAttr("class");
+            $("#mainPlant").addClass("mainPlant4_" + (plantnumber + 1));
         });
          //예외초과 확인버튼 클릭시
         $('#popupView1BtnId5').on('touchend click', function (event) {
@@ -427,7 +438,7 @@
                 $("#Day2-tab div").replaceWith($("#temp div"));
             }
             if (new Date(today.valueOf() + (24 * 60 * 60 * 1000*2)).getDate() == new Date().getDate()) {
-                $("#Day3-tab div").replaceWith($("#temp div"));
+                $("#Day3-tab div").replaceWith($("#temp2 div"));
             }
             if (Day1 == null) {
                 $("#Day2").removeClass("active");
@@ -452,6 +463,8 @@
                 }
             }
             else if (Day2 == null) {
+                $("#mainPlant").removeAttr("class");
+                $("#mainPlant").addClass("mainPlant2");
                 $("#Day1").removeClass("active");
                 $("#Day1" + "-tab").css("display", "none");
                 $("#Day2").removeClass("active");
@@ -474,6 +487,8 @@
                 }
             }
             else if (Day3 == null) {
+                $("#mainPlant").removeAttr("class");
+                $("#mainPlant").addClass("mainPlant3_" + (plantnumber + 1));
                 $("#Day1").removeClass("active");
                 $("#Day1" + "-tab").css("display", "none");
                 $("#Day2").removeClass("active");
@@ -496,6 +511,8 @@
                 }
             }
             else {
+                $("#mainPlant").removeAttr("class");
+                $("#mainPlant").addClass("mainPlant4_" + (plantnumber + 1));
                 $("#Day1").removeClass("active");
                 $("#Day1" + "-tab").css("display", "none");
                 $("#Day2").removeClass("active");
