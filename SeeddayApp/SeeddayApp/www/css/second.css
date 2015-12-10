@@ -75,6 +75,9 @@ p{font-size:15px;color:#7b7b7b;}
 .mainBtn2{width:100%;height:73px;background-color:#7336d0;}
 .mainBtn2 p{color:#ffffff;font-size:16px;margin:0px;padding:20px 0px;opacity:0.1}
 .mainBtn2 img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
+.mainBtn3{width:100%;height:73px;background-color:#7336d0;position:absolute;bottom:0}
+.mainBtn3 p{color:#ffffff;font-size:16px;margin:0px;padding:20px 0px;}
+.mainBtn3 img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
 .mainText1{padding:50px 0px;margin:0px}
 }
 @media screen and (min-width:321px){.mainback{background:url("../images/mainpage/main_background.png") no-repeat center center fixed;background-size:cover;}

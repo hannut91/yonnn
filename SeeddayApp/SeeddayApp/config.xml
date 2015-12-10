@@ -111,4 +111,5 @@
   <vs:plugin name="cordova-plugin-splashscreen" version="2.1.0" />
   <vs:plugin name="cordova-plugin-keyboard" version="1.1.2" src="https://github.com/cjpearson/cordova-plugin-keyboard" />
   <vs:plugin name="cordova-sqlite-storage" version="0.7.15-dev" src="https://github.com/litehelpers/Cordova-sqlite-storage" />
+  <vs:plugin name="cordova-plugin-inappbrowser" version="1.1.0" />
 </widget>

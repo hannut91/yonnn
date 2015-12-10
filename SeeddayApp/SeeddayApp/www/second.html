@@ -8,6 +8,7 @@
     <script type="text/javascript" src="scripts/splashscreen.js"></script>
     <script type="text/javascript" src="scripts/keyboard.js"></script>
     <script type="text/javascript" src="scripts/SQLitePlugin.js"></script>
+    <script type="text/javascript" src="scripts/inappbrowser.js"></script>
     <link href="css/second.css" rel="stylesheet" />
 
 
@@ -192,9 +193,12 @@
         <section id="tabContent3" class="tabCon">
             <p class="dayTitle"><span class="dayTitleLine"><span id="day3Year"></span>년<span id="day3Mon">12</span>월<span id="day3Date"></span>일</span></p>
             <p id="day3Content" class="daycontent"></p>
+            <div class="mainBtn3">
+                <p><img src="images/mainpage/present.png" /> 작은시작 보상 받기</p>
+            </div>
         </section>
         <section id="temp">
-            <div class="mainBtn1">
+            <div class="mainBtn1"> 
                 <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
             </div>
         </section>
@@ -214,39 +218,33 @@
          var plantnumber;
          function outDb(){
              var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
-
-             db.executeSql("SELECT * FROM seedday", [], function (res) {
-                           goal = res.rows.item(0).GOAL;
-                           curDate = res.rows.item(0).CURDATE;
-                           Day1 = res.rows.item(0).DAY1;
-                           Day2 = res.rows.item(0).DAY2;
-                           Day3 = res.rows.item(0).DAY3;
-                           plantnumber = res.rows.item(0).PLANTNUMBER;
-                           onResume();
-                           });
-
+             db.executeSql("SELECT *, MAX(ID) FROM seedday", [], function (res) {
+                goal = res.rows.item(0).GOAL;
+                curDate = res.rows.item(0).CURDATE;
+                Day1 = res.rows.item(0).DAY1;
+                Day2 = res.rows.item(0).DAY2;
+                Day3 = res.rows.item(0).DAY3;
+                plantnumber = res.rows.item(0).PLANTNUMBER; 
+                onResume(); 
+             });
          }
          function inDB(toData, inData) {
              var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
-             db.executeSql('UPDATE seedday set ' + toData + ' = "' + inData + '" WHERE ID = 1');
+             db.executeSql('UPDATE seedday set ' + toData + ' = "' + inData + '" WHERE ID = last_insert_rowid()');
              outDb();
          }
      $(window).load(function(){
-
-                    outDb();
-                    console.log("is loaded");
-                    });
-         $(document).ready(function () {
+        outDb();
+        console.log("is loaded");
+     });
+     $(document).ready(function () {
         document.addEventListener( 'pause', onPause, false );
         document.addEventListener('resume', onResume, false);
 
-        //onResume();
         //splashscreen 가리기
         setTimeout(function () {
             navigator.splashscreen.hide();
         }, 1000);
-
-
 
         //Tab 컨트롤
         var activeTabIndex = -1;
@@ -266,7 +264,6 @@
             $("#" + tabNames[activeTabIndex]).addClass("active");
             return false;
         });
-
      });
        //터치 이벤트 핸들러
         function eventHandler(event, selector) {
@@ -294,6 +291,20 @@
             var popupWidth = $('#popupView3Id').outerWidth();
             var popupHeight = $('#popupView3Id').outerHeight();
             $('#popupView3Id').css({
+                "margin-left": -popupWidth / 2,
+                "margin-top": -popupHeight / 2
+            });
+            $('<div id="blind_box"></div>').css('opacity', 0.7).appendTo('body');
+        });
+
+        //Day3 실천 완료 후 버튼 클릭시
+        $('.mainBtn3').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            //실제 작동하는 코드
+            $('#popupView5Id').addClass("on");
+            var popupWidth = $('#popupView5Id').outerWidth();
+            var popupHeight = $('#popupView5Id').outerHeight();
+            $('#popupView5Id').css({
                 "margin-left": -popupWidth / 2,
                 "margin-top": -popupHeight / 2
             });
@@ -381,9 +392,18 @@
         });
          //예외초과 확인버튼 클릭시
         $('#popupView1BtnId5').on('touchend click', function (event) {
-            localStorage.clear();
+            var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
+            db.executeSql("DELETE FROM seedday WHERE ID = last_insert_rowid()");
             location = "index.html";
         });
+        $('#popupView1BtnId4').on('touchend click', function (event) {
+            var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
+            db.executeSql('UPDATE seedday set COMPLETE = "complete" WHERE ID = last_insert_rowid()');
+            var ref = cordova.InAppBrowser.open('http://seedday.net', '_blank', 'location=yes');
+            location = "index.html";
+
+        });
+
 
          //앱이 일시 정지 시
         function onPause() {
@@ -522,7 +542,7 @@
                 $("#" + "Day3" + "-tab").fadeIn();
                 $("#" + "Day3").addClass("active");
             }
-            if (Day1 != null) {
+            if (Day1 != null) { 
                 $("#tabWrap1").replaceWith($("#tabContent1"));
                 document.getElementById("day1Content").innerHTML = Day1;
             }

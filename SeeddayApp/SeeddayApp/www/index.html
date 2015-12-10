@@ -164,11 +164,9 @@
         //버튼 클릭시 지정한 페이지로 이동
         $('#popupView2BtnId').on('touchend click', function (event) {
             eventHandler(event, $(this));
-
-   
             var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
             db.transaction(function (tx) {
-                tx.executeSql('INSERT INTO seedday (goal, curdate, plantnumber) VALUES("' + $('#goalInput').val() + '", "' + new Date() + '", "' + $('#selectPlant').val() + '")');
+                tx.executeSql('INSERT INTO seedday (goal, curdate, plantnumber, complete) VALUES("' + $('#goalInput').val() + '", "' + new Date() + '", "' + $('#selectPlant').val() + '", "notcomplete")');
             });
             location = "second.html";
 
@@ -237,7 +235,10 @@
             */
             // End to End swiping
             // load 130 images in main javascript container
+
+            
             var slideImages = [];
+            /*
             addSlides(slideImages, 'sports', 10);
             addSlides(slideImages, 'people', 10);
             addSlides(slideImages, 'city', 10);
@@ -254,7 +255,7 @@
             $scope.totalimg = slideImages.length;
             $scope.galleryNumber = 1;
             console.log($scope.galleryNumber);
-
+            */
             function getImage(target) {
                 var i = target.length
                     , p = (($scope.galleryNumber - 1) * $scope.setOfImagesToShow) + i;
