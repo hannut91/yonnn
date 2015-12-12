@@ -165,11 +165,9 @@
         $('#popupView2BtnId').on('touchend click', function (event) {
             eventHandler(event, $(this));
             var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
-            db.transaction(function (tx) {
-                tx.executeSql('INSERT INTO seedday (goal, curdate, plantnumber, complete) VALUES("' + $('#goalInput').val() + '", "' + new Date() + '", "' + $('#selectPlant').val() + '", "notcomplete")');
+            db.executeSql('INSERT INTO seedday (goal, curdate, plantnumber, complete) VALUES("' + $('#goalInput').val() + '", "' + new Date() + '", "' + $('#selectPlant').val() + '", "notcomplete")', [], function () {
+                location = "second.html";
             });
-            location = "second.html";
-
         });
         angular.module('DemoApp', [
             'angular-carousel'

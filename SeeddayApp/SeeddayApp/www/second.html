@@ -219,52 +219,55 @@
          function outDb(){
              var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
              db.executeSql("SELECT *, MAX(ID) FROM seedday", [], function (res) {
-                goal = res.rows.item(0).GOAL;
-                curDate = res.rows.item(0).CURDATE;
-                Day1 = res.rows.item(0).DAY1;
-                Day2 = res.rows.item(0).DAY2;
-                Day3 = res.rows.item(0).DAY3;
-                plantnumber = res.rows.item(0).PLANTNUMBER; 
-                onResume(); 
+                 goal = res.rows.item(0).GOAL;
+                 curDate = res.rows.item(0).CURDATE;
+                 Day1 = res.rows.item(0).DAY1;
+                 Day2 = res.rows.item(0).DAY2;
+                 Day3 = res.rows.item(0).DAY3;
+                 plantnumber = res.rows.item(0).PLANTNUMBER;
+                 onResume();
              });
          }
          function inDB(toData, inData) {
              var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
-             db.executeSql('UPDATE seedday set ' + toData + ' = "' + inData + '" WHERE ID = last_insert_rowid()');
-             outDb();
+             db.executeSql('UPDATE seedday set ' + toData + ' = "' + inData + '" WHERE ID = last_insert_rowid()', [], function () {
+                 outDb();
+             });
          }
-     $(window).load(function(){
-        outDb();
-        console.log("is loaded");
-     });
-     $(document).ready(function () {
-        document.addEventListener( 'pause', onPause, false );
-        document.addEventListener('resume', onResume, false);
 
-        //splashscreen 가리기
-        setTimeout(function () {
-            navigator.splashscreen.hide();
-        }, 1000);
+         document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+         function onDeviceReady() {
+             document.addEventListener('pause', onPause, false);
+             document.addEventListener('resume', onResume, false);
 
-        //Tab 컨트롤
-        var activeTabIndex = -1;
-        var tabNames = ["Day1", "Day2", "Day3"];
+             //splashscreen 가리기
+             setTimeout(function () {
+                 navigator.splashscreen.hide();
+             }, 1000);
 
-        $(".tab-menu > li").on('touchend click', function (e) {
-            eventHandler(e, $(this));
-            for (var i = 0; i < tabNames.length; i++) {
-                if (e.target.id == tabNames[i]) {
-                    activeTabIndex = i;
-                } else {
-                    $("#" + tabNames[i]).removeClass("active");
-                    $("#" + tabNames[i] + "-tab").css("display", "none");
-                }
-            }
-            $("#" + tabNames[activeTabIndex] + "-tab").fadeIn();
-            $("#" + tabNames[activeTabIndex]).addClass("active");
-            return false;
-        });
-     });
+             //Tab 컨트롤
+             var activeTabIndex = -1;
+             var tabNames = ["Day1", "Day2", "Day3"];
+
+             $(".tab-menu > li").on('touchend click', function (e) {
+                 eventHandler(e, $(this));
+                 for (var i = 0; i < tabNames.length; i++) {
+                     if (e.target.id == tabNames[i]) {
+                         activeTabIndex = i;
+                     } else {
+                         $("#" + tabNames[i]).removeClass("active");
+                         $("#" + tabNames[i] + "-tab").css("display", "none");
+                     }
+                 }
+                 $("#" + tabNames[activeTabIndex] + "-tab").fadeIn();
+                 $("#" + tabNames[activeTabIndex]).addClass("active");
+                 return false;
+             });
+             $(function () {
+                 outDb();
+             });
+         };
+
        //터치 이벤트 핸들러
         function eventHandler(event, selector) {
             event.stopPropagation();
@@ -393,17 +396,18 @@
          //예외초과 확인버튼 클릭시
         $('#popupView1BtnId5').on('touchend click', function (event) {
             var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
-            db.executeSql("DELETE FROM seedday WHERE ID = last_insert_rowid()");
-            location = "index.html";
+            db.executeSql("DELETE FROM seedday WHERE ID = last_insert_rowid()",[],function(){
+                location = "index.html";
+            });
         });
+        
         $('#popupView1BtnId4').on('touchend click', function (event) {
             var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
-            db.executeSql('UPDATE seedday set COMPLETE = "complete" WHERE ID = last_insert_rowid()');
-            var ref = cordova.InAppBrowser.open('http://seedday.net', '_blank', 'location=yes');
-            location = "index.html";
-
+            db.executeSql('UPDATE seedday set COMPLETE = "comp" WHERE ID = last_insert_rowid()',[],function(){
+              //  var ref = cordova.InAppBrowser.open('http://seedday.net', '_blank', 'location=yes');
+                location = "index.html";
+            });
         });
-
 
          //앱이 일시 정지 시
         function onPause() {
