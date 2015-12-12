@@ -4,66 +4,82 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="scripts/splashscreen.js"></script>
+    <script type="text/javascript" src="scripts/keyboard.js"></script>
     <script src="scripts/framework/angular.min.js"></script>
-    
-    <link href="css/Seedday.css" rel="stylesheet" />
     <link href="css/second.css" rel="stylesheet" />
     <script type="text/javascript">
-        var tempfortest;
         $(document).ready(function () {
-            //splashscreen 가리기
-            setTimeout(function () {
-                navigator.splashscreen.hide();
-            }, 2000);
+        document.addEventListener( 'pause', onPause, false );
+        document.addEventListener('resume', onResume, false);
+        onResume();
+        //splashscreen 가리기
+        setTimeout(function () {
+            navigator.splashscreen.hide();
+        }, 1000);
 
-            //목표 값 가져와서 메인페이지에 보여주기
-            document.getElementById("mainpageMidText").innerHTML = '<span class="mainText1">'+localStorage.getItem("goal")+'</span>';
+        //목표 값 가져와서 메인페이지에 보여주기
+        document.getElementById("mainpageMidText").innerHTML = '<span class="mainText1">'+localStorage.getItem("goal")+'</span>';
 
-            /* 내가 원하는 값 먼저 띄워주기
-            $("#Day1").removeClass("active");
-            $("#Day1" + "-tab").css("display", "none");
-            $("#Day2").removeClass("active");
-            $("#Day2" + "-tab").css("display", "none");
-            $("#Day2").removeClass("active");
-            $("#Day2" + "-tab").css("display", "none");
-            $("#" + "Day3" + "-tab").fadeIn();
-            $("#" + "Day3").addClass("active");
-            */
-            //날짜 계산해서 출력해주기
-            var today = new Date(localStorage.getItem("curDate"));
-            var tomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000));
-            var aftertomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000*2));
+        //날짜 계산해서 출력해주기
+        var today = new Date(localStorage.getItem("curDate"));
+        var tomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000));
+        var aftertomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000 * 2));
+        if (document.getElementById("Day1Month") != null) {
             document.getElementById("Day1Month").innerHTML = today.getMonth() + 1;
+        }
+        if (document.getElementById("Day2Month") != null) {
             document.getElementById("Day2Month").innerHTML = tomorrow.getMonth() + 1;
+        }
+        if (document.getElementById("Day3Month") != null) {
             document.getElementById("Day3Month").innerHTML = aftertomorrow.getMonth() + 1;
+        }
+        if (document.getElementById("Day1Day") != null) {
             document.getElementById("Day1Day").innerHTML = today.getDate();
+        }
+        if (document.getElementById("Day2Day") != null) {
             document.getElementById("Day2Day").innerHTML = tomorrow.getDate();
+        }
+        if (document.getElementById("Day3Day") != null) {
             document.getElementById("Day3Day").innerHTML = aftertomorrow.getDate();
+        }
+        if (document.getElementById("day1Mon") != null) {
+            document.getElementById("day1Mon").innerHTML = today.getMonth() + 1;
+        }
+        if (document.getElementById("day2Mon") != null) {
+            document.getElementById("day2Mon").innerHTML = tomorrow.getMonth() + 1;
+        }
+        if (document.getElementById("day3Mon") != null) {
+            document.getElementById("day3Mon").innerHTML = aftertomorrow.getMonth() + 1;
+        }
+        document.getElementById("day1Date").innerHTML = today.getDate();
+        document.getElementById("day2Date").innerHTML = tomorrow.getDate();
+        document.getElementById("day3Date").innerHTML = aftertomorrow.getDate();
+        document.getElementById("day1Year").innerHTML = today.getFullYear();
+        document.getElementById("day2Year").innerHTML = tomorrow.getFullYear();
+        document.getElementById("day3Year").innerHTML = aftertomorrow.getFullYear();
 
-            //Tab 컨트롤
-            var activeTabIndex = -1;
-            var tabNames = ["Day1", "Day2", "Day3"];
+        //Tab 컨트롤
+        var activeTabIndex = -1;
+        var tabNames = ["Day1", "Day2", "Day3"];
 
-            $(".tab-menu > li").click(function (e) {
-                for (var i = 0; i < tabNames.length; i++) {
-                    if (e.target.id == tabNames[i]) {
-                        activeTabIndex = i;
-                    } else {
-                        $("#" + tabNames[i]).removeClass("active");
-                        $("#" + tabNames[i] + "-tab").css("display", "none");
-                    }
+        $(".tab-menu > li").on('touchend click', function (e) {
+            eventHandler(e, $(this));
+            for (var i = 0; i < tabNames.length; i++) {
+                if (e.target.id == tabNames[i]) {
+                    activeTabIndex = i;
+                } else { 
+                    $("#" + tabNames[i]).removeClass("active");
+                    $("#" + tabNames[i] + "-tab").css("display", "none");
                 }
-                $("#" + tabNames[activeTabIndex] + "-tab").fadeIn();
-                $("#" + tabNames[activeTabIndex]).addClass("active");
-                return false;
-            });
+            }
+            $("#" + tabNames[activeTabIndex] + "-tab").fadeIn();
+            $("#" + tabNames[activeTabIndex]).addClass("active");
+            return false;
         });
-           // $('#Day1').attr('disabled', true); //add
-            //$('#tab_c a').removeAttr('disabled'); //remove
+     });
     </script>
-
 </head>
-<body class="introback"style="height:100%;margin:0px;overflow:hidden">
+<body class="mainback"style="height:100%;margin:0px;overflow:hidden">
     <div>
         <!--상 이미지-->
         <section class="mainpageTop">
@@ -73,21 +89,21 @@
 
         <!--중앙 텍스트-->
         <section class="mainpageMid">
-            <p id="mainpageMidText"><span class="mainText1">아침에 일어나서 스트레칭하기</span></p>
+            <p id="mainpageMidText"><span class="mainText1"></span></p>
         </section>
         <!--//중앙 텍스트-->
     </div>
     <!--오늘의 실천 기록하기 작성 팝업-->
     <div id="popupView3Id" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco.png" />
+            <img class="popupDeco" src="images/popup_deco1.png" />
             <h2 id="decoDday" class="popupDecoText">Day-1</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/deco.png" />
+            <img class="popupDecoImg" src="images/popup_deco2.png" />
         </div>
         <h1><span class="popupText1">실천기록하기</span></h1>
-        <input type="text" placeholder="여기를 눌러 실천기록을 작성해주세요" ng-model="promiseContent" />
+        <input id="actionInput" type="text" placeholder="여기를 눌러 실천기록을 작성해주세요"/>
         <section id="popupView2BtnId" class="popupView1Btn">
             <p>확인</p>
         </section>
@@ -96,16 +112,16 @@
     <!--DAY1 페이지 성공 팝업-->
     <div id="day1Success" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco.png" />
+            <img class="popupDeco" src="images/popup_deco1.png" />
             <h2 class="popupDecoText">Day-1</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/deco.png" />
+            <img class="popupDecoImg" src="images/popup_deco2.png" />
         </div>
         <h1><span class="popupText1">오늘의 실천성공</span></h1>
-        <p class="day1SuccessText">식물에게 물을 듬뿍 주었습니다.</br>작은시작이 싹을 틔웠어요!</p>
+        <p class="day1SuccessText">식물에게 물을 듬뿍 주었습니다.<br />작은시작이 싹을 틔웠어요!</p>
         <img class="day1SuccessImg" src="images/mainpage/day1Success.png" />
-        <section id="popupView1BtnId" class="popupView1Btn">
+        <section id="popupView1BtnId1" class="popupView1Btn">
             <p>확인</p>
         </section>
     </div>
@@ -113,16 +129,16 @@
     <!--DAY2 페이지 성공 팝업-->
     <div id="day2Success" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco.png" />
+            <img class="popupDeco" src="images/popup_deco1.png" />
             <h2 class="popupDecoText">Day-2</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/deco.png" />
+            <img class="popupDecoImg" src="images/popup_deco2.png" />
         </div>
         <h1><span class="popupText1">오늘의 실천성공</span></h1>
-        <p class="day1SuccessText">식물에게 햇살이 가득히 비칩니다.</br>작은시작이 줄기가 자랐어요</p>
+        <p class="day1SuccessText">식물에게 햇살이 가득히 비칩니다.<br/>작은시작이 줄기가 자랐어요</p>
         <img class="day2SuccessImg" src="images/mainpage/day2Success.png"/>
-        <section id="popupView1BtnId" class="popupView1Btn">
+        <section id="popupView1BtnId2" class="popupView1Btn">
             <p>확인</p>
         </section>
     </div>
@@ -130,16 +146,16 @@
     <!--DAY3 페이지 성공 팝업-->
     <div id="day3Success" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco.png" />
+            <img class="popupDeco" src="images/popup_deco1.png" />
             <h2 class="popupDecoText">Day-3</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/deco.png" />
+            <img class="popupDecoImg" src="images/popup_deco2.png" />
         </div>
         <h1><span class="popupText1">오늘의 실천성공</span></h1>
-        <p class="day1SuccessText">식물에게 영양분이 충분히 뿌려집니다.</br>작은시작이 활짝 피어났어요!</p>
+        <p class="day1SuccessText">식물에게 영양분이 충분히 뿌려집니다.<br/>작은시작이 활짝 피어났어요!</p>
         <img class="day3SuccessImg" src="images/mainpage/day3Success.png"/>
-        <section id="popupView1BtnId" class="popupView1Btn">
+        <section id="popupView1BtnId3" class="popupView1Btn">
             <p>확인</p>
         </section>
     </div>
@@ -147,20 +163,20 @@
     <!--보상신청 팝업-->
     <div id="popupView5Id" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco.png" />
+            <img class="popupDeco" src="images/popup_deco1.png" />
             <h2 class="popupDecoText">Day-3</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/deco.png" />
+            <img class="popupDecoImg" src="images/popup_deco2.png" />
         </div>
         <h1><span class="popupText1">작은시작 실천성공</span></h1>
         <p>
-            작은시작실천을 성공하신 분께</br>허브키우기 KIT를 무료로 보내드립니다.
-            </br>
-            </br>
-            [다음]버튼을 누르시면</br>주소입력페이지로 이동됩니다.
+            작은시작실천을 성공하신 분께<br/>허브키우기 KIT를 무료로 보내드립니다.
+            <br/>
+            <br/>
+            [다음]버튼을 누르시면<br/>주소입력페이지로 이동됩니다.
         </p>
-        <section id="popupView1BtnId" class="popupView1Btn">
+        <section id="popupView1BtnId4" class="popupView1Btn">
             <p>다음</p>
         </section>
     </div>
@@ -169,19 +185,19 @@
     <!--예외처리 시간초과 팝업-->
     <div id="popupView6Id" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco.png" />
+            <img class="popupDeco" src="images/popup_deco1.png" />
             <h2 class="popupDecoText">Day-3</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/deco.png" />
+            <img class="popupDecoImg" src="images/popup_deco2.png" />
         </div>
         <h1><span class="popupText1">작은시작 시간초과</span></h1>
         <p>
-            아쉽게도 오늘의 실천을 약속한</br>시간이 지나버렸습니다.
-            </br>
+            아쉽게도 오늘의 실천을 약속한<br/>시간이 지나버렸습니다.
+            <br/>
             지금 다시 시작해보세요.
         </p>
-        <section id="popupView1BtnId" class="popupView1Btn">
+        <section id="popupView1BtnId5" class="popupView1Btn">
             <p>다시 시작하기</p>
         </section>
     </div>
@@ -208,30 +224,48 @@
         <div class="clear"></div>
         <div class="tab-top-border"></div>
         <div id="Day1-tab" class="tab-content active">
-            <section id="temp">
+            <section id="tabWrap1">
                 <p class="mainText1" id="mainText1"><span id="Day1Month">11</span>월 <span id="Day1Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
-            <div class="mainBtn1">
-                <p><img src="images/plusImage_white.png" /> 오늘의 실천 기록하기</p>
-            </div>
+                <div class="mainBtn1">
+                    <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+                </div>  
             </section>
         </div>
         <div id="Day2-tab" class="tab-content">
-            <p class="mainText1"><span id="Day2Month">11</span>월 <span id="Day2Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
-            <div class="mainBtn1">
-                <p><img src="images/plusImage_white.png" /> 오늘의 실천 기록하기</p>
-            </div>
+            <section id="tabWrap2">
+                <p class="mainText1"><span id="Day2Month">11</span>월 <span id="Day2Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+                <div class="mainBtn2">
+                    <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+                </div>
+            </section>
         </div>
         <div id="Day3-tab" class="tab-content">
-            <p class="mainText1"><span id="Day3Month">11</span>월 <span id="Day3Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
-            <div class="mainBtn1">
-                <p><img src="images/plusImage_white.png" /> 오늘의 실천 기록하기</p>
-            </div>
+            <section id="tabWrap3">
+                <p class="mainText1"><span id="Day3Month">11</span>월 <span id="Day3Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+                <div class="mainBtn2">
+                    <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+                </div>
+            </section>
         </div>
     </div>
 
     <div style="display:none">
-        <section id="change">
-            <p>바꿔치기 ㅎㅎ</p>
+        <section id="tabContent1" class="tabCon">
+            <p class="dayTitle"><span class="dayTitleLine"><span id="day1Year"></span>년<span id="day1Mon">12</span>월<span id="day1Date"></span>일</span></p>
+            <p id="day1Content" class="daycontent"></p>
+        </section>
+        <section id="tabContent2" class="tabCon">
+            <p class="dayTitle"><span class="dayTitleLine"><span id="day2Year"></span>년<span id="day2Mon">12</span>월<span id="day2Date"></span>일</span></p>
+            <p id="day2Content" class="daycontent"></p>
+        </section>
+        <section id="tabContent3" class="tabCon">
+            <p class="dayTitle"><span class="dayTitleLine"><span id="day3Year"></span>년<span id="day3Mon">12</span>월<span id="day3Date"></span>일</span></p>
+            <p id="day3Content" class="daycontent"></p>
+        </section>
+        <section id="temp">
+            <div class="mainBtn1">
+                <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+            </div>  
         </section>
     </div>
     <!--Day 탭-->
@@ -245,7 +279,6 @@
                 selector.off('click');
             }
         }
-
         //하단 버튼 클릭 시 팝업 on
         $('.mainBtn1').on('touchend click', function (event) {
             eventHandler(event, $(this));
@@ -259,22 +292,15 @@
             else if ($('#Day3').hasClass("active")) {
                 document.getElementById("decoDday").innerHTML = "Day-3";
             }
-
             //실제 작동하는 코드
-            $('.mainBtn1').css({
-                "-webkit-animation-name": 'downBtn',
-                "-webkit-animation-delay": '0s'
-            });
             $('#popupView3Id').addClass("on");
             var popupWidth = $('#popupView3Id').outerWidth();
             var popupHeight = $('#popupView3Id').outerHeight();
             $('#popupView3Id').css({
                 "margin-left": -popupWidth / 2,
-                "margin-top": -popupHeight / 2
+                "margin-top": -popupHeight / 2 
             });
-
             $('<div id="blind_box"></div>').css('opacity', 0.7).appendTo('body');
-            
         });
 
         // 실천기록하기 후 확인버튼 클릭시
@@ -284,6 +310,8 @@
             if ($('#popupView3Id input').val() != "") {
                 $('#popupView3Id').removeClass("on");
                 if ($('#Day1').hasClass("active")) {
+                    localStorage.setItem('Day1', $("#actionInput").val());
+                    $("#actionInput").val("");
                     $('#day1Success').addClass("on");
                     var popupWidth = $('#day1Success').outerWidth();
                     var popupHeight = $('#day1Success').outerHeight();
@@ -293,6 +321,7 @@
                     });
                 }
                 else if ($('#Day2').hasClass("active")) {
+                    localStorage.setItem('Day2', $("#actionInput").val());
                     $('#day2Success').addClass("on");
                     var popupWidth = $('#day2Success').outerWidth();
                     var popupHeight = $('#day2Success').outerHeight();
@@ -302,6 +331,7 @@
                     });
                 }
                 else if ($('#Day3').hasClass("active")) {
+                    localStorage.setItem('Day3', $("#actionInput").val());
                     $('#day3Success').addClass("on");
                     var popupWidth = $('#day3Success').outerWidth();
                     var popupHeight = $('#day3Success').outerHeight();
@@ -309,23 +339,150 @@
                     "margin-left": -popupWidth / 2,
                     "margin-top": -popupHeight / 2
                 });
-            }
+                }
+                Keyboard.hide();
             }
             else {
                 alert("내용을 입력해주세요.");
             }
         });
 
-        //실천성공 클릭시 팝업 지우기
-        $('#popupView1BtnId').on('touchend click', function (event) {
+        //Day1 실천성공 클릭시 팝업 지우기
+        $('#popupView1BtnId1').on('touchend click', function (event) {
             eventHandler(event, $(this));
             document.getElementById("blind_box").remove();
-            $('#popupView4Id').removeClass("on");
+            $('#day1Success').removeClass("on");
             //탭 내용 변경
-            $("#temp").replaceWith($("#change"));
-           // document.getElementById("Day1-tab").innerHTML = $("#change").html;
+            $("#tabWrap1").replaceWith($("#tabContent1"));
+            document.getElementById("day1Content").innerHTML = localStorage.getItem("Day1");
         });
-        
+        //Day2 실천성공 클릭시 팝업 지우기
+        $('#popupView1BtnId2').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            document.getElementById("blind_box").remove();
+            $('#day2Success').removeClass("on");
+            //탭 내용 변경
+            $("#tabWrap2").replaceWith($("#tabContent2"));
+            document.getElementById("day2Content").innerHTML = localStorage.getItem("Day2");
+        });
+         //Day3 실천성공 클릭시 팝업 지우기
+        $('#popupView1BtnId3').on('touchend click', function (event) {
+            eventHandler(event, $(this));
+            document.getElementById("blind_box").remove();
+            $('#day3Success').removeClass("on");
+            //탭 내용 변경
+            $("#tabWrap3").replaceWith($("#tabContent3"));
+            document.getElementById("day3Content").innerHTML = localStorage.getItem("Day3");
+        });
+         //예외초과 확인버튼 클릭시
+        $('#popupView1BtnId5').on('touchend click', function (event) {
+            localStorage.clear();
+            location = "index.html";
+        });
+ 
+         //앱이 일시 정지 시
+        function onPause() {
+        };
+         //앱이 재시작 시
+        function onResume() {
+            var today = new Date(localStorage.getItem("curDate"));
+            var tomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000));
+            var aftertomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000 * 2));
+            if (new Date(today.valueOf() + (24 * 60 * 60 * 1000)).getDate() == new Date().getDate()) {
+                $("#Day2-tab div").replaceWith($("#temp div"));
+            }
+            if (new Date(today.valueOf() + (24 * 60 * 60 * 1000*2)).getDate() == new Date().getDate()) {
+                $("#Day3-tab div").replaceWith($("#temp div"));
+            }
+            if (localStorage.getItem("Day1") == null) {
+                $("#Day2").removeClass("active");
+                $("#Day2" + "-tab").css("display", "none");
+                $("#Day3").removeClass("active");
+                $("#Day3" + "-tab").css("display", "none");
+                $("#Day1").removeClass("active");
+                $("#Day1" + "-tab").css("display", "none");
+                $("#" + "Day1" + "-tab").fadeIn();
+                $("#" + "Day1").addClass("active");
+                var temp = new Date();
+                if (parseInt(today.getFullYear() + "" + ("0" + (today.getMonth() + 1)).slice(-2) + ("0" + (today.getDate())).slice(-2)) <
+                    parseInt(temp.getFullYear() + "" + ("0" + (temp.getMonth() + 1)).slice(-2) + ("0" + (temp.getDate())).slice(-2))) {
+                    $('#popupView6Id').addClass("on");
+                    var popupWidth = $('#popupView6Id').outerWidth();
+                    var popupHeight = $('#popupView6Id').outerHeight();
+                    $('#popupView6Id').css({
+                        "margin-left": -popupWidth / 2,
+                        "margin-top": -popupHeight / 2
+                    });
+                    $('<div id="blind_box"></div>').css('opacity', 0.7).appendTo('body');
+                }
+            }
+            else if (localStorage.getItem("Day2") == null) {
+                $("#Day1").removeClass("active");
+                $("#Day1" + "-tab").css("display", "none");
+                $("#Day2").removeClass("active");
+                $("#Day2" + "-tab").css("display", "none");
+                $("#Day3").removeClass("active");
+                $("#Day3" + "-tab").css("display", "none");
+                $("#" + "Day2" + "-tab").fadeIn();
+                $("#" + "Day2").addClass("active");
+                var temp = new Date();
+                if (parseInt(tomorrow.getFullYear() + "" + ("0" + (tomorrow.getMonth() + 1)).slice(-2) + ("0" + (tomorrow.getDate())).slice(-2)) <
+                    parseInt(temp.getFullYear() + "" + ("0" + (temp.getMonth() + 1)).slice(-2) + ("0" + (temp.getDate())).slice(-2))) {
+                    $('#popupView6Id').addClass("on");
+                    var popupWidth = $('#popupView6Id').outerWidth();
+                    var popupHeight = $('#popupView6Id').outerHeight();
+                    $('#popupView6Id').css({
+                        "margin-left": -popupWidth / 2,
+                        "margin-top": -popupHeight / 2
+                    });
+                    $('<div id="blind_box"></div>').css('opacity', 0.7).appendTo('body');
+                }
+            }
+            else if (localStorage.getItem("Day3") == null) {
+                $("#Day1").removeClass("active");
+                $("#Day1" + "-tab").css("display", "none");
+                $("#Day2").removeClass("active");
+                $("#Day2" + "-tab").css("display", "none");
+                $("#Day3").removeClass("active");
+                $("#Day3" + "-tab").css("display", "none");
+                $("#" + "Day3" + "-tab").fadeIn();
+                $("#" + "Day3").addClass("active");
+                var temp = new Date();
+                if (parseInt(aftertomorrow.getFullYear() + "" + ("0" + (aftertomorrow.getMonth() + 1)).slice(-2) + ("0" + (aftertomorrow.getDate())).slice(-2)) <
+                    parseInt(temp.getFullYear() + "" + ("0" + (temp.getMonth() + 1)).slice(-2) + ("0" + (temp.getDate())).slice(-2))) {
+                    $('#popupView6Id').addClass("on");
+                    var popupWidth = $('#popupView6Id').outerWidth();
+                    var popupHeight = $('#popupView6Id').outerHeight();
+                    $('#popupView6Id').css({
+                        "margin-left": -popupWidth / 2,
+                        "margin-top": -popupHeight / 2
+                    });
+                    $('<div id="blind_box"></div>').css('opacity', 0.7).appendTo('body');
+                }
+            }
+            else {
+                $("#Day1").removeClass("active");
+                $("#Day1" + "-tab").css("display", "none");
+                $("#Day2").removeClass("active");
+                $("#Day2" + "-tab").css("display", "none");
+                $("#Day3").removeClass("active");
+                $("#Day3" + "-tab").css("display", "none");
+                $("#" + "Day3" + "-tab").fadeIn();
+                $("#" + "Day3").addClass("active");
+            }
+            if (localStorage.getItem("Day1") != null) {
+                $("#tabWrap1").replaceWith($("#tabContent1"));
+                document.getElementById("day1Content").innerHTML = localStorage.getItem("Day1");
+            }
+            if (localStorage.getItem("Day2") != null) {
+                $("#tabWrap2").replaceWith($("#tabContent2"));
+                document.getElementById("day2Content").innerHTML = localStorage.getItem("Day2");
+            }
+            if (localStorage.getItem("Day3") != null) {
+                $("#tabWrap3").replaceWith($("#tabContent3"));
+                document.getElementById("day3Content").innerHTML = localStorage.getItem("Day3");
+            }
+        };
     </script>
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>

@@ -9,59 +9,34 @@
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/framework/angular.min.js"></script>
     <script type="text/javascript" src="scripts/splashscreen.js"></script>
+    <script type="text/javascript" src="scripts/keyboard.js"></script>
     <!-- CSS -->
     <link href="css/Seedday.css" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function () {
             //splashscreen 숨기기
-            setTimeout(function () {
+            setTimeout(function () {  
                 navigator.splashscreen.hide();
-            }, 2000);
-
-            //중앙 이미지 위치 조정하기
-            var contentHeight = $("#mainContent").outerHeight();
-            var contentWidth = $("#mainContent").outerWidth();
-            $("#mainContent").css({
-                "margin-top": -contentHeight / 2,
-                "margin-left": -contentWidth / 2
-            });
+            }, 1000);
         });
     </script>
 </head>
 <body style="height:100%;margin:0px;overflow:hidden">
-    <!--중앙 이미지 및 텍스트-->
-    <div id="mainContent">
-
-        <!-- 중앙 이미지-->
-        <section style="text-align:center">
-            <img class="mainImage" src="images/intro_image.png" />
-        </section>
-        <!--//중앙 이미지-->
-
-        <!--중앙 텍스트-->
-        <section style="text-align:center">
-            <p class="mainText">What's your<br />'Start Small'?</p>
-            <p class="subText">당신의 작은 시작은 무엇입니까?</p>
-        </section>
-        <!--//중앙 텍트스-->
-       
-    </div>
-    <!--//중앙 이미지 및 텍스트-->
 
     <!--하단 버튼-->
     <div class="bottomBtn">
-            <p><img src="images/plusImage.png" />작은시작 다짐하기</p>
+            <p><img src="images/intro_plus.png" />작은시작 다짐하기</p>
     </div>
     <!--//하단 버튼-->
 
     <!--다짐 기록하기 팝업-->
-    <div name="popupView1" id="popupView1Id"class="popupView1" onsubmit="return check();">
+    <div name="popupView1" id="popupView1Id"class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco.png" />
+            <img class="popupDeco" src="images/popup_deco1.png" />
             <h2 class="popupDecoText">D-Day</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/deco.png" />
+            <img class="popupDecoImg" src="images/popup_deco2.png" />
         </div>
             <h1><span class="popupText1">작은시작 다짐하기</span></h1>
         <input id="goalInput"type="text" placeholder="여기를 눌러 작은다짐을 작성해주세요" ng-model="promiseContent"/>
@@ -71,11 +46,11 @@
     </div>
       <section id="popupView2Id" class="popupView1">
           <div class="popupDecoWrap">
-              <img class="popupDeco" src="images/popup_deco.png" />
+              <img class="popupDeco" src="images/popup_deco1.png" />
               <h2 class="popupDecoText">D-Day</h2>
           </div>
           <div class="popupDecoWrap2">
-              <img class="popupDecoImg" src="images/deco.png" />
+              <img class="popupDecoImg" src="images/popup_deco2.png" />
           </div>
             <h1><span class="popupText1">작은시작 다짐 확인 </span></h1>
             <h3>"{{promiseContent}}"</h3>
@@ -100,11 +75,8 @@
         //하단 버튼 클릭 시 애니메이션
         $('.bottomBtn').on('touchend click', function (event) {
             eventHandler(event, $(this));
-
             $('.bottomBtn').css({
                 "-webkit-animation-name": 'downBtn',
-                "-webkit-animation-delay": '0s'
-
             });
             $('#popupView1Id').addClass("on");
             var popupWidth = $('#popupView1Id').outerWidth();
@@ -130,6 +102,7 @@
                 "margin-left": -popupWidth / 2,
                 "margin-top": -popupHeight / 2
             });
+            Keyboard.hide();
             }
             else {
                 alert("내용을 입력해주세요.");
@@ -141,8 +114,8 @@
             eventHandler(event, $(this));
 
             //목표, 달, 날짜 저장하기
-            window.localStorage.setItem('goal',$('#goalInput').val());
-            window.localStorage.setItem('curDate', new Date());
+            localStorage.setItem('goal',$('#goalInput').val());
+            localStorage.setItem('curDate', new Date());
             location = "second.html";
             });
 

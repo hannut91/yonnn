@@ -21,6 +21,10 @@
                         {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"CDVKeyboard\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -28,10 +32,13 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "io.cordova.myapp212d28"
         },
-        "cordova-plugin-splashscreen": {
+        "cordova-plugin-keyboard": {
+            "PACKAGE_NAME": "io.cordova.myapp212d28"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.myapp212d28"
         }
     },

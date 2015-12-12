@@ -1,84 +1,39 @@
 ﻿
+/*
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 *{
 font-family: 'Noto Sans KR', sans-serif;
 } 
-    
-.introback{
-	background: url("../images/intro_background.png") no-repeat center center fixed; 
-	background-size: cover;
-}
-
+*/
 
 @media screen and (max-width: 320px) {
-    .mainImage {width: 146px; height: 133px;}
-    .mainText{font-size:22px;color:#ffffff;margin:20px 0px 0px 0px}
-    .subText{font-size:8px;color:#ffffff;margin:6px 0px 0px 0px}
-    #mainContent{top:50%;left:50%;position:absolute}
-    .bottomBtn{
-        width:100%;height:76px;position:fixed;bottom:-76px;text-align:center;background-color:#ffffff;
-
+.introback{	background: url("../images/background.png") no-repeat center center fixed; background-size:cover;}
+.bottomBtn{
+        width:100%;height:76px;position:fixed;bottom:0px;text-align:center;background-color:#ffffff;
         -webkit-animation-timing-function:ease;
-        -webkit-animation-name:upBtn;
         -webkit-animation-duration:0.5s;
-        -webkit-animation-delay:1s;
-        -webkit-animation-fill-mode: forwards       
-    }
-    .bottomBtn p{color:#662ac3;font-size:21px;font-weight:bold;}
-    .bottomBtn img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
-    @-webkit-keyframes upBtn {
-    from {bottom:-76px}
-    to {bottom:0px}
-    } 
-    @-webkit-keyframes downBtn{
-        from {bottom:0px;}
-        to {bottom:-76px;}
-    }
+        -webkit-animation-fill-mode: forwards}
+.bottomBtn p{color:#662ac3;font-size:21px;font-weight:bold;}
+.bottomBtn img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
+@-webkit-keyframes downBtn{from {bottom:0px;}to {bottom:-76px;} }
 
-    /*다짐 기록하기 팝업*/
-    .popupView1 {
-        margin: 0px;
-        width: 90%;
-        background: #ffffff;
-        text-align: center;
-        display: none;
-        position:absolute;
-        left:50%;
-        top:50%;
-        z-index:3;
-        border-radius:3px 3px 6px 6px;
-    }
-    .popupView1.on{display:block}
-    .popupView1.on .popupView1Btn{width:100%;height:65px;background-color:#7336d0;border-radius:0px 0px 3px 3px;}
-    .popupView1.on .popupView1Btn p{color:#ffffff;font-size:16px;font-weight:bold;margin:0px;padding:20px 0px}
-    .popupView1 h1{margin:60px 0px 0px 0px;font-size:26px;font-weight:bold;text-decoration-style:solid}
-    .popupView1 h3{margin:41px 0px 0px 0px;font-size:15px;font-weight:bold;color:#767676}
-    .popupView1 .fightingText {margin:9px 0px 41px 0px;font-size:13px;color:#C2C2C2}
-    .popupView1 .popupText1{border-bottom-width:3px;border-bottom-style:solid;padding-bottom:8px}
+/*다짐 기록하기 팝업*/
+.popupView1 {margin: 0px;width: 90%;background: #ffffff;text-align: center;display: none;position:absolute;left:50%;top:50%;z-index:3;border-radius:3px 3px 6px 6px;}
+.popupView1.on{display:block}
+.popupView1.on .popupView1Btn{width:100%;height:65px;background-color:#7336d0;border-radius:0px 0px 3px 3px;}
+.popupView1.on .popupView1Btn p{color:#ffffff;font-size:16px;font-weight:bold;margin:0px;padding:20px 0px}
+.popupView1 h1{margin:60px 0px 0px 0px;font-size:26px;font-weight:bold;text-decoration-style:solid}
+.popupView1 h3{margin:41px 0px 0px 0px;font-size:15px;font-weight:bold;color:#767676}
+.popupView1 .fightingText {margin:9px 0px 41px 0px;font-size:13px;color:#C2C2C2}
+.popupView1 .popupText1{border-bottom-width:3px;border-bottom-style:solid;padding-bottom:8px}
+.popupView1 input{margin:40px 0px 40px 0px;width:230px;background:#ffffff;text-align:center;font-size:14px;border-top-style:none;border-left-style:none;border-right-style:none;padding:9px}
+.popupView1 .popupDeco{position:relative;width:41px;height:46px}
+.popupView1 .popupDecoImg{position:relative;width:7px;height:7px}
+.popupView1 .popupDecoText{position:absolute;top:13px;left:5px;color:#ffffff;font-size:9px;font-weight:bold;margin:0px;}
+.popupView1 .popupDecoWrap{position:absolute;top:-1px;left:14px;}
+.popupView1 .popupDecoWrap2{position:absolute;top:-1px;right:9px;}
+#blind_box {position:absolute; top:0; left:0; width:100%; height:100%; background:#000; z-index:2;} 
 
-    .popupView1 input{margin:40px 0px 40px 0px;width:230px;background:#ffffff;text-align:center;font-size:14px;border-top-style:none;border-left-style:none;border-right-style:none;padding:9px}
-    .popupView1 .popupDeco{position:relative;width:41px;height:46px}
-    .popupView1 .popupDecoImg{position:relative;width:7px;height:7px}
-    .popupView1 .popupDecoText{position:absolute;top:13px;left:5px;color:#ffffff;font-size:9px;font-weight:bold;margin:0px;}
-    .popupView1 .popupDecoWrap{position:absolute;top:-1px;left:14px;}
-    .popupView1 .popupDecoWrap2{position:absolute;top:-1px;right:9px;}
-    .popupView1 .day1SuccessText{margin:22px 0px 0px 0px;font-size:14px;color:#767676;}
-    .popupView1 .day1SuccessImg{width:78px;height:56px;margin:37px 0px 36px 0px}
-    .popupView1 .day2SuccessImg{width:58px;height:58px;margin:32px 0px 32px 0px}
-    .popupView1 .day3SuccessImg{width:77px;height:60px;margin:28px 0px 24px 0px}
-
-
-
-     #blind_box {position:absolute; top:0; left:0; width:100%; height:100%; background:#000; z-index:2;} 
-
-
-     .mainBtn1{width:100%;height:73px;background-color:#7336d0;border-radius:0px 0px 3px 3px;}
-     .mainBtn1 p{color:#ffffff;font-size:16px;margin:0px;padding:20px 0px;}
-     .mainBtn1 img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
-     .mainBtn2{width:100%;height:73px;background-color:#7336d0;border-radius:0px 0px 3px 3px;}
-     .mainBtn2 p{color:#ffffff;font-size:16px;margin:0px;padding:20px 0px;opacity:0.1}
-     .mainBtn2 img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
-     .mainText1{padding:50px 0px;margin:0px}
 }
 @media screen and (min-width: 321px) and (max-width: 480px) {
    .mainImage {width: 146px; height: 133px;}

@@ -7,8 +7,8 @@
   <access origin="*" />
   <vs:features />
   <preference name="SplashScreen" value="screen" />
-  <preference name="FadeSplashScreen" value="false"/>
-  <preference name="AutoHideSplashScreen" value="false"/>
+  <preference name="FadeSplashScreen" value="false" />
+  <preference name="AutoHideSplashScreen" value="false" />
   <preference name="windows-target-version" value="8.1" />
   <preference name="DisallowOverscroll" value="true" />
   <!-- Support for Cordova 5.0.0 plugin system -->
@@ -94,7 +94,7 @@
     <splash src="res/screens/ios/screen-ipad-portrait-2x.png" width="1536" height="2048" />
     <splash src="res/screens/ios/screen-ipad-landscape.png" width="1024" height="768" />
     <splash src="res/screens/ios/screen-ipad-landscape-2x.png" width="2048" height="1536" />
-    <splash src="res/screens/ios/screen-iphone5-portrait.png.png" width="640" height="1136" />
+    <splash src="res/screens/ios/screen-iphone5-portrait.png" width="640" height="1136" />
     <splash src="res/screens/ios/screen-iphone-portrait-667h.png" width="750" height="1334" />
     <splash src="res/screens/ios/screen-iphone-portrait-736h.png" width="1242" height="2208" />
     <splash src="res/screens/ios/screen-iphone-landscape-736h.png" width="2208" height="1242" />
@@ -107,7 +107,7 @@
   <platform name="wp8">
     <splash src="res/screens/wp8/SplashScreenImage.jpg" width="480" height="800" />
   </platform>
-  <vs:plugin name="cordova-plugin-whitelist" version="1.0.0" />
   <preference name="deployment-target" value="7.1" />
   <vs:plugin name="cordova-plugin-splashscreen" version="2.1.0" />
+  <vs:plugin name="cordova-plugin-keyboard" version="1.1.2" src="https://github.com/cjpearson/cordova-plugin-keyboard" />
 </widget>
