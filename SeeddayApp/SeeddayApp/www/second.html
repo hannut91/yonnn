@@ -5,79 +5,8 @@
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="scripts/splashscreen.js"></script>
     <script type="text/javascript" src="scripts/keyboard.js"></script>
-    <script src="scripts/framework/angular.min.js"></script>
     <link href="css/second.css" rel="stylesheet" />
-    <script type="text/javascript">
-        $(document).ready(function () {
-        document.addEventListener( 'pause', onPause, false );
-        document.addEventListener('resume', onResume, false);
-        onResume();
-        //splashscreen 가리기
-        setTimeout(function () {
-            navigator.splashscreen.hide();
-        }, 1000);
 
-        //목표 값 가져와서 메인페이지에 보여주기
-        document.getElementById("mainpageMidText").innerHTML = '<span class="mainText1">'+localStorage.getItem("goal")+'</span>';
-
-        //날짜 계산해서 출력해주기
-        var today = new Date(localStorage.getItem("curDate"));
-        var tomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000));
-        var aftertomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000 * 2));
-        if (document.getElementById("Day1Month") != null) {
-            document.getElementById("Day1Month").innerHTML = today.getMonth() + 1;
-        }
-        if (document.getElementById("Day2Month") != null) {
-            document.getElementById("Day2Month").innerHTML = tomorrow.getMonth() + 1;
-        }
-        if (document.getElementById("Day3Month") != null) {
-            document.getElementById("Day3Month").innerHTML = aftertomorrow.getMonth() + 1;
-        }
-        if (document.getElementById("Day1Day") != null) {
-            document.getElementById("Day1Day").innerHTML = today.getDate();
-        }
-        if (document.getElementById("Day2Day") != null) {
-            document.getElementById("Day2Day").innerHTML = tomorrow.getDate();
-        }
-        if (document.getElementById("Day3Day") != null) {
-            document.getElementById("Day3Day").innerHTML = aftertomorrow.getDate();
-        }
-        if (document.getElementById("day1Mon") != null) {
-            document.getElementById("day1Mon").innerHTML = today.getMonth() + 1;
-        }
-        if (document.getElementById("day2Mon") != null) {
-            document.getElementById("day2Mon").innerHTML = tomorrow.getMonth() + 1;
-        }
-        if (document.getElementById("day3Mon") != null) {
-            document.getElementById("day3Mon").innerHTML = aftertomorrow.getMonth() + 1;
-        }
-        document.getElementById("day1Date").innerHTML = today.getDate();
-        document.getElementById("day2Date").innerHTML = tomorrow.getDate();
-        document.getElementById("day3Date").innerHTML = aftertomorrow.getDate();
-        document.getElementById("day1Year").innerHTML = today.getFullYear();
-        document.getElementById("day2Year").innerHTML = tomorrow.getFullYear();
-        document.getElementById("day3Year").innerHTML = aftertomorrow.getFullYear();
-
-        //Tab 컨트롤
-        var activeTabIndex = -1;
-        var tabNames = ["Day1", "Day2", "Day3"];
-
-        $(".tab-menu > li").on('touchend click', function (e) {
-            eventHandler(e, $(this));
-            for (var i = 0; i < tabNames.length; i++) {
-                if (e.target.id == tabNames[i]) {
-                    activeTabIndex = i;
-                } else { 
-                    $("#" + tabNames[i]).removeClass("active");
-                    $("#" + tabNames[i] + "-tab").css("display", "none");
-                }
-            }
-            $("#" + tabNames[activeTabIndex] + "-tab").fadeIn();
-            $("#" + tabNames[activeTabIndex]).addClass("active");
-            return false;
-        });
-     });
-    </script>
 </head>
 <body class="mainback"style="height:100%;margin:0px;overflow:hidden">
     <div>
@@ -269,8 +198,76 @@
         </section>
     </div>
     <!--Day 탭-->
-     <script>
+     <script async type="text/javascript">
+         $(document).ready(function () {
+        document.addEventListener( 'pause', onPause, false );
+        document.addEventListener('resume', onResume, false);
+        onResume();
+        //splashscreen 가리기
+        setTimeout(function () {
+            navigator.splashscreen.hide();
+        }, 1000);
 
+        //목표 값 가져와서 메인페이지에 보여주기
+        document.getElementById("mainpageMidText").innerHTML = '<span class="mainText1">'+localStorage.getItem("goal")+'</span>';
+
+        //날짜 계산해서 출력해주기
+        var today = new Date(localStorage.getItem("curDate"));
+        var tomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000));
+        var aftertomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000 * 2));
+        if (document.getElementById("Day1Month") != null) {
+            document.getElementById("Day1Month").innerHTML = today.getMonth() + 1;
+        }
+        if (document.getElementById("Day2Month") != null) {
+            document.getElementById("Day2Month").innerHTML = tomorrow.getMonth() + 1;
+        }
+        if (document.getElementById("Day3Month") != null) {
+            document.getElementById("Day3Month").innerHTML = aftertomorrow.getMonth() + 1;
+        }
+        if (document.getElementById("Day1Day") != null) {
+            document.getElementById("Day1Day").innerHTML = today.getDate();
+        }
+        if (document.getElementById("Day2Day") != null) {
+            document.getElementById("Day2Day").innerHTML = tomorrow.getDate();
+        }
+        if (document.getElementById("Day3Day") != null) {
+            document.getElementById("Day3Day").innerHTML = aftertomorrow.getDate();
+        }
+        if (document.getElementById("day1Mon") != null) {
+            document.getElementById("day1Mon").innerHTML = today.getMonth() + 1;
+        }
+        if (document.getElementById("day2Mon") != null) {
+            document.getElementById("day2Mon").innerHTML = tomorrow.getMonth() + 1;
+        }
+        if (document.getElementById("day3Mon") != null) {
+            document.getElementById("day3Mon").innerHTML = aftertomorrow.getMonth() + 1;
+        }
+        document.getElementById("day1Date").innerHTML = today.getDate();
+        document.getElementById("day2Date").innerHTML = tomorrow.getDate();
+        document.getElementById("day3Date").innerHTML = aftertomorrow.getDate();
+        document.getElementById("day1Year").innerHTML = today.getFullYear();
+        document.getElementById("day2Year").innerHTML = tomorrow.getFullYear();
+        document.getElementById("day3Year").innerHTML = aftertomorrow.getFullYear();
+
+        //Tab 컨트롤
+        var activeTabIndex = -1;
+        var tabNames = ["Day1", "Day2", "Day3"];
+
+        $(".tab-menu > li").on('touchend click', function (e) {
+            eventHandler(e, $(this));
+            for (var i = 0; i < tabNames.length; i++) {
+                if (e.target.id == tabNames[i]) {
+                    activeTabIndex = i;
+                } else { 
+                    $("#" + tabNames[i]).removeClass("active");
+                    $("#" + tabNames[i] + "-tab").css("display", "none");
+                }
+            }
+            $("#" + tabNames[activeTabIndex] + "-tab").fadeIn();
+            $("#" + tabNames[activeTabIndex]).addClass("active");
+            return false;
+        });
+     });
        //터치 이벤트 핸들러
         function eventHandler(event, selector) {
             event.stopPropagation();
