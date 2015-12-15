@@ -15,14 +15,18 @@
     <script type="text/javascript" src="scripts/angular-carousel.min.js"></script>
 
     <!-- CSS -->
-    <link href="css/Seedday.css" rel="stylesheet" />
+    <link href="css/Seedday_i4.css" rel="stylesheet" media="screen and (max-width:320px)" />
+    <link href="css/Seedday_i5.css" rel="stylesheet" media="screen and (max-width:320px)" />
+    <link href="css/Seedday_i6.css" rel="stylesheet" media="screen and (min-width:321px) and (max-width:375px)" />
+    <link href="css/Seedday_i6+.css" rel="stylesheet" media="screen and (min-width:376px) and (max-width:414px)" />
+
     
 </head>
 <body style="height:100%;margin:0px;overflow:hidden" ng-controller="DemoCtrl">
 
     <!--하단 버튼-->
     <div class="bottomBtn">
-        <p><img src="images/intro_plus.png" />작은시작 다짐하기</p>
+        <p><img srcset="images/image_big/intro_plus.png 414w,images/intro_plus.png 320w"/>작은시작 다짐하기</p>
     </div>
     <!--//하단 버튼-->
     <!--다짐 기록하기 팝업-->
