@@ -1,6 +1,6 @@
 ﻿.introback{background:url("../images/background.png") no-repeat center center fixed;background-size:cover;}
 .bottomBtn{width:100%;height:76px;position:fixed;bottom:0px;text-align:center;background-color:#ffffff;-webkit-animation-timing-function:ease;-webkit-animation-duration:0.5s;-webkit-animation-fill-mode:forwards}
-.bottomBtn p{color:#662ac3;font-size:21px;font-weight:bold;}
+.bottomBtn p{color:#662ac3;font-size:21px;font-weight:bold;margin:24px}
 .bottomBtn img{width:27px;height:27px;vertical-align:sub;margin-right:12px;}
 @-webkit-keyframes downBtn{from{bottom:0px;}to{bottom:-76px;}
 }

@@ -9,15 +9,22 @@
     <script type="text/javascript" src="scripts/keyboard.js"></script>
     <script type="text/javascript" src="scripts/SQLitePlugin.js"></script>
     <script type="text/javascript" src="scripts/inappbrowser.js"></script>
-    <link href="css/second.css" rel="stylesheet" />
-
+ 
+    <link href="css/second_i4.css" rel="stylesheet" media="screen and (max-width:320px)" />
+    <link href="css/second_i5.css" rel="stylesheet" media="screen and (max-width:320px)" />
+    <link href="css/second_i6.css" rel="stylesheet" media="screen and (min-width:321px) and (max-width:375px)" />
+    <link href="css/second_i6+.css" rel="stylesheet" media="screen and (min-width:376px) and (max-width:414px)" />
 
 </head>
 <body class="mainback" style="height:100%;margin:0px;overflow:hidden">
     <div>
         <!--상 이미지-->
         <section class="mainpageTop">
-            <img class="mainpageTopImg" src="images/mainpage/mainpage_top.png" />
+            <picture>
+                <source srcset="images/mainpage/mainpage_top.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/mainpage/mainpage_top.png" media="(max-width: 414px)">
+                <img class="mainpageTopImg" srcset="images/mainpage/mainpage_top.png" />
+            </picture>
         </section>
         <!--//상 이미지-->
         <!--중앙 텍스트-->
@@ -29,11 +36,19 @@
     <!--오늘의 실천 기록하기 작성 팝업-->
     <div id="popupView3Id" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco1.png" />
+            <picture>
+                <source srcset="images/popup_deco1.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco1.png" media="(max-width: 414px)">
+                <img class="popupDeco" src="images/popup_deco1.png" />
+            </picture>
             <h2 id="decoDday" class="popupDecoText">Day-1</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/popup_deco2.png" />
+            <picture>
+                <source srcset="images/popup_deco2.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco2.png" media="(max-width: 414px)">
+                <img class="popupDecoImg" src="images/popup_deco2.png" />
+            </picture>
         </div>
         <h1><span class="popupText1">실천기록하기</span></h1>
         <input id="actionInput" type="text" placeholder="여기를 눌러 실천기록을 작성해주세요" />
@@ -45,15 +60,27 @@
     <!--DAY1 페이지 성공 팝업-->
     <div id="day1Success" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco1.png" />
+            <picture>
+                <source srcset="images/popup_deco1.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco1.png" media="(max-width: 414px)">
+                <img class="popupDeco" src="images/popup_deco1.png" />
+            </picture>
             <h2 class="popupDecoText">Day-1</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/popup_deco2.png" />
+            <picture>
+                <source srcset="images/popup_deco2.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco2.png" media="(max-width: 414px)">
+                <img class="popupDecoImg" src="images/popup_deco2.png" />
+            </picture>
         </div>
         <h1><span class="popupText1">오늘의 실천성공</span></h1>
         <p class="day1SuccessText">식물에게 물을 듬뿍 주었습니다.<br />작은시작이 싹을 틔웠어요!</p>
-        <img class="day1SuccessImg" src="images/mainpage/day1Success.png" />
+        <picture>
+            <source srcset="images/mainpage/day1Success.png" media="(max-width: 320px)">
+            <source srcset="images/image_big/mainpage/day1Success.png" media="(max-width: 414px)">
+            <img class="day1SuccessImg" src="images/mainpage/day1Success.png" />
+        </picture>
         <section id="popupView1BtnId1" class="popupView1Btn">
             <p>확인</p>
         </section>
@@ -62,15 +89,27 @@
     <!--DAY2 페이지 성공 팝업-->
     <div id="day2Success" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco1.png" />
+            <picture>
+                <source srcset="images/popup_deco1.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco1.png" media="(max-width: 414px)">
+                <img class="popupDeco" src="images/popup_deco1.png" />
+            </picture>
             <h2 class="popupDecoText">Day-2</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/popup_deco2.png" />
+            <picture>
+                <source srcset="images/popup_deco2.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco2.png" media="(max-width: 414px)">
+                <img class="popupDecoImg" src="images/popup_deco2.png" />
+            </picture>
         </div>
         <h1><span class="popupText1">오늘의 실천성공</span></h1>
         <p class="day1SuccessText">식물에게 햇살이 가득히 비칩니다.<br />작은시작이 줄기가 자랐어요</p>
-        <img class="day2SuccessImg" src="images/mainpage/day2Success.png" />
+        <picture>
+            <source srcset="images/mainpage/day2Success.png" media="(max-width: 320px)">
+            <source srcset="images/image_big/mainpage/day2Success.png" media="(max-width: 414px)">
+            <img class="day2SuccessImg" src="images/mainpage/day2Success.png" />
+        </picture>
         <section id="popupView1BtnId2" class="popupView1Btn">
             <p>확인</p>
         </section>
@@ -79,15 +118,27 @@
     <!--DAY3 페이지 성공 팝업-->
     <div id="day3Success" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco1.png" />
+            <picture>
+                <source srcset="images/popup_deco1.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco1.png" media="(max-width: 414px)">
+                <img class="popupDeco" src="images/popup_deco1.png" />
+            </picture>
             <h2 class="popupDecoText">Day-3</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/popup_deco2.png" />
+            <picture>
+                <source srcset="images/popup_deco2.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco2.png" media="(max-width: 414px)">
+                <img class="popupDecoImg" src="images/popup_deco2.png" />
+            </picture>
         </div>
         <h1><span class="popupText1">오늘의 실천성공</span></h1>
         <p class="day1SuccessText">식물에게 영양분이 충분히 뿌려집니다.<br />작은시작이 활짝 피어났어요!</p>
-        <img class="day3SuccessImg" src="images/mainpage/day3Success.png" />
+        <picture>
+            <source srcset="images/mainpage/day3Success.png" media="(max-width: 320px)">
+            <source srcset="images/image_big/mainpage/day3Success.png" media="(max-width: 414px)">
+            <img class="day3SuccessImg" src="images/mainpage/day3Success.png" />
+        </picture>
         <section id="popupView1BtnId3" class="popupView1Btn">
             <p>확인</p>
         </section>
@@ -96,11 +147,19 @@
     <!--보상신청 팝업-->
     <div id="popupView5Id" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco1.png" />
+            <picture>
+                <source srcset="images/popup_deco1.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco1.png" media="(max-width: 414px)">
+                <img class="popupDeco" src="images/popup_deco1.png" />
+            </picture>
             <h2 class="popupDecoText">Day-3</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/popup_deco2.png" />
+            <picture>
+                <source srcset="images/popup_deco2.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco2.png" media="(max-width: 414px)">
+                <img class="popupDecoImg" src="images/popup_deco2.png" />
+            </picture>
         </div>
         <h1><span class="popupText1">작은시작 실천성공</span></h1>
         <p>
@@ -117,11 +176,19 @@
     <!--예외처리 시간초과 팝업-->
     <div id="popupView6Id" class="popupView1">
         <div class="popupDecoWrap">
-            <img class="popupDeco" src="images/popup_deco1.png" />
+            <picture>
+                <source srcset="images/popup_deco1.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco1.png" media="(max-width: 414px)">
+                <img class="popupDeco" src="images/popup_deco1.png" />
+            </picture>
             <h2 class="popupDecoText">Day-3</h2>
         </div>
         <div class="popupDecoWrap2">
-            <img class="popupDecoImg" src="images/popup_deco2.png" />
+            <picture>
+                <source srcset="images/popup_deco2.png" media="(max-width: 320px)">
+                <source srcset="images/image_big/popup_deco2.png" media="(max-width: 414px)">
+                <img class="popupDecoImg" src="images/popup_deco2.png" />
+            </picture>
         </div>
         <h1><span class="popupText1">작은시작 시간초과</span></h1>
         <p>
@@ -137,16 +204,51 @@
     <!--Day 탭-->
     <div id="tab-container">
         <div id="mainPlant" class="mainPlant1"></div>
-        <!--<img id="mainPlant"class="mainPlant" src="images/mainpage/mainpage_plant.png" />-->
-        <img class="mainParticle1" src="images/mainpage/main_particle5.png" />
-        <img class="mainParticle2" src="images/mainpage/main_particle2.png" />
-        <img class="mainParticle3" src="images/mainpage/main_particle4.png" />
-        <img class="mainParticle4" src="images/mainpage/main_particle3.png" />
-        <img class="mainParticle5" src="images/mainpage/main_particle4.png" />
-        <img class="mainParticle6" src="images/mainpage/main_particle2.png" />
-        <img class="mainParticle7" src="images/mainpage/main_particle3.png" />
-        <img class="mainParticle8" src="images/mainpage/main_particle2.png" />
-        <img class="mainParticle9" src="images/mainpage/main_particle1.png" />
+        <picture>
+            <source srcset="images/image_big/mainpage/main_particle5.png" media="(max-width: 320px)">
+            <source srcset="images/mainpage/main_particle5.png" media="(max-width: 414px)">
+            <img class="mainParticle1" src="images/mainpage/main_particle5.png" />
+        </picture>
+        <picture>
+            <source srcset="images/image_big/mainpage/main_particle2.png" media="(max-width: 320px)">
+            <source srcset="images/mainpage/main_particle2.png" media="(max-width: 414px)">
+            <img class="mainParticle2" src="images/mainpage/main_particle2.png" />
+        </picture>
+        <picture>
+            <source srcset="images/image_big/mainpage/main_particle4.png" media="(max-width: 320px)">
+            <source srcset="images/mainpage/main_particle4.png" media="(max-width: 414px)">
+            <img class="mainParticle3" src="images/mainpage/main_particle4.png" />
+        </picture>
+        <picture>
+            <source srcset="images/image_big/mainpage/main_particle3.png" media="(max-width: 320px)">
+            <source srcset="images/mainpage/main_particle3.png" media="(max-width: 414px)">
+            <img class="mainParticle4" src="images/mainpage/main_particle3.png" />
+        </picture>
+        <picture>
+            <source srcset="images/image_big/mainpage/main_particle4.png" media="(max-width: 320px)">
+            <source srcset="images/mainpage/main_particle4.png" media="(max-width: 414px)">
+            <img class="mainParticle5" src="images/mainpage/main_particle4.png" />
+        </picture>
+        <picture>
+            <source srcset="images/image_big/mainpage/main_particle2.png" media="(max-width: 320px)">
+            <source srcset="images/mainpage/main_particle2.png" media="(max-width: 414px)">
+            <img class="mainParticle6" src="images/mainpage/main_particle2.png" />
+        </picture>
+        <picture>
+            <source srcset="images/image_big/mainpage/main_particle3.png" media="(max-width: 320px)">
+            <source srcset="images/mainpage/main_particle3.png" media="(max-width: 414px)">
+            <img class="mainParticle7" src="images/mainpage/main_particle3.png" />
+        </picture>
+        <picture>
+            <source srcset="images/image_big/mainpage/main_particle2.png" media="(max-width: 320px)">
+            <source srcset="images/mainpage/main_particle2.png" media="(max-width: 414px)">
+            <img class="mainParticle8" src="images/mainpage/main_particle2.png" />
+        </picture>
+        <picture>
+            <source srcset="images/image_big/mainpage/main_particle1.png" media="(max-width: 320px)">
+            <source srcset="images/mainpage/main_particle1.png" media="(max-width: 414px)">
+            <img class="mainParticle9" src="images/mainpage/main_particle1.png" />
+        </picture>
 
         <ul class="tab-menu">
             <li id="Day1" class="active">DAY-1</li>
@@ -158,16 +260,30 @@
         <div id="Day1-tab" class="tab-content active">
             <section id="tabWrap1">
                 <p class="mainText1" id="mainText1"><span id="Day1Month">11</span>월 <span id="Day1Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
-                <div class="mainBtn1">
-                    <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
-                </div>
+ 
             </section>
+            <div class="mainBtn1">
+                <p>
+                    <picture>
+                        <source srcset="images/mainpage/plusImage_white.png" media="(max-width: 320px)">
+                        <source srcset="images/image_big/mainpage/plusImage_white.png" media="(max-width: 414px)">
+                        <img src="images/mainpage/plusImage_white.png" />
+                    </picture>
+                    오늘의 실천 기록하기
+                </p>
+            </div>
         </div>
         <div id="Day2-tab" class="tab-content">
             <section id="tabWrap2">
                 <p class="mainText1"><span id="Day2Month">11</span>월 <span id="Day2Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
                 <div class="mainBtn2">
-                    <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+                    <p>
+                        <picture>
+                            <source srcset="images/mainpage/plusImage_white.png" media="(max-width: 320px)">
+                            <source srcset="images/image_big/mainpage/plusImage_white.png" media="(max-width: 414px)">
+                            <img src="images/mainpage/plusImage_white.png" />
+                        </picture>
+                        오늘의 실천 기록하기</p>
                 </div>
             </section>
         </div>
@@ -175,7 +291,13 @@
             <section id="tabWrap3">
                 <p class="mainText1"><span id="Day3Month">11</span>월 <span id="Day3Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
                 <div class="mainBtn2">
-                    <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+                    <p>
+                        <picture>
+                            <source srcset="images/mainpage/plusImage_white.png" media="(max-width: 320px)">
+                            <source srcset="images/image_big/mainpage/plusImage_white.png" media="(max-width: 414px)">
+                            <img src="images/mainpage/plusImage_white.png" />
+                        </picture>
+                        오늘의 실천 기록하기</p>
                 </div>
             </section>
         </div>
@@ -194,17 +316,38 @@
             <p class="dayTitle"><span class="dayTitleLine"><span id="day3Year"></span>년<span id="day3Mon">12</span>월<span id="day3Date"></span>일</span></p>
             <p id="day3Content" class="daycontent"></p>
             <div class="mainBtn3">
-                <p><img src="images/mainpage/present.png" /> 작은시작 보상 받기</p>
+                <p>
+                    <picture>
+                        <source srcset="images/mainpage/present.png" media="(max-width: 320px)">
+                        <source srcset="images/image_big/mainpage/present.png" media="(max-width: 414px)">
+                        <img src="images/mainpage/present.png" />                    
+                    </picture>
+                 작은시작 보상 받기
+                </p>
             </div>
         </section>
         <section id="temp">
             <div class="mainBtn1"> 
-                <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+                <p>
+                    <picture>
+                        <source srcset="images/mainpage/plusImage_white.png" media="(max-width: 320px)">
+                        <source srcset="images/image_big/mainpage/plusImage_white.png" media="(max-width: 414px)">
+                        <img src="images/mainpage/plusImage_white.png" /> 
+                    </picture>
+                    오늘의 실천 기록하기
+                </p>
             </div>
         </section>
         <section id="temp2">
             <div class="mainBtn1">
-                <p><img src="images/mainpage/plusImage_white.png" /> 오늘의 실천 기록하기</p>
+                <p>
+                    <picture>
+                        <source srcset="images/mainpage/plusImage_white.png" media="(max-width: 320px)">
+                        <source srcset="images/image_big/mainpage/plusImage_white.png" media="(max-width: 414px)">
+                        <img src="images/mainpage/plusImage_white.png" />
+                    </picture>
+                    오늘의 실천 기록하기
+                </p>
             </div>
         </section>
     </div>
