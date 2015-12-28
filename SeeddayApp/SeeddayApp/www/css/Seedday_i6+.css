@@ -1,13 +1,13 @@
 ﻿.introback{background:url("../images/image_big/background.png") no-repeat center center fixed;background-size:cover;}
 .bottomBtn{width:100%;height:98px;position:fixed;bottom:0px;text-align:center;background-color:#ffffff;-webkit-animation-timing-function:ease;-webkit-animation-duration:0.5s;-webkit-animation-fill-mode:forwards}
 .bottomBtn p{color:#662ac3;font-size:27px;font-weight:bold;margin:31px}
-.bottomBtn img{width:35px;height:35px;vertical-align:sub;margin-right:15.5px;}
+.bottomBtn img{width:35px;height:35px;vertical-align:sub;margin-right:5px;}
 @-webkit-keyframes downBtn{from{bottom:0px;}to{bottom:-98px;}
 }
 .popupView1{margin:0px;width:90%;background:#ffffff;text-align:center;display:none;position:absolute;left:50%;top:50%;z-index:3;border-radius:3px 3px 6px 6px;}
 .popupView1.on{display:block}
 .popupView1.on .popupView1Btn{width:100%;height:84px;background-color:#7336d0;border-radius:0px 0px 3px 3px;}
-.popupView1.on .popupView1Btn p{color:#ffffff;font-size:21px;font-weight:bold;margin:0px;padding:20px 0px}
+.popupView1.on .popupView1Btn p{color:#ffffff;font-size:21px;font-weight:bold;margin:0px;padding:28px 0px}
 .popupView1 h1{margin:78px 0px 0px 0px;font-size:34px;font-weight:bold;text-decoration-style:solid}
 .popupView1 h3{margin:53px 0px 0px 0px;font-size:25px;font-weight:bold;color:#767676}
 .popupView1 .fightingText{margin:12px 0px 53px 0px;font-size:17px;color:#C2C2C2}
@@ -41,5 +41,5 @@ ul[rn-carousel] > li {color: black;-webkit-backface-visibility: hidden;-ms-backf
 .rn-carousel-control.rn-carousel-control-next {right:44px;}
 .rn-carousel-control.rn-carousel-control-next:before {background:url('../images/image_big/plantRight.png') no-repeat center center;background-size: 16px;padding:10px;content:' ';}
 
-}
+
 

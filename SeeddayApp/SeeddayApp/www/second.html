@@ -9,11 +9,13 @@
     <script type="text/javascript" src="scripts/keyboard.js"></script>
     <script type="text/javascript" src="scripts/SQLitePlugin.js"></script>
     <script type="text/javascript" src="scripts/inappbrowser.js"></script>
- 
+    <script type='application/javascript' src='scripts/fastclick.js'></script>
+
     <link href="css/second_i4.css" rel="stylesheet" media="screen and (max-width:320px)" />
     <link href="css/second_i5.css" rel="stylesheet" media="screen and (max-width:320px)" />
     <link href="css/second_i6.css" rel="stylesheet" media="screen and (min-width:321px) and (max-width:375px)" />
     <link href="css/second_i6+.css" rel="stylesheet" media="screen and (min-width:376px) and (max-width:414px)" />
+
 
 </head>
 <body class="mainback" style="height:100%;margin:0px;overflow:hidden">
@@ -258,24 +260,28 @@
         <div class="clear"></div>
         <div class="tab-top-border"></div>
         <div id="Day1-tab" class="tab-content active">
-            <section id="tabWrap1">
-                <p class="mainText1" id="mainText1"><span id="Day1Month">11</span>월 <span id="Day1Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
- 
-            </section>
-            <div class="mainBtn1">
-                <p>
-                    <picture>
-                        <source srcset="images/mainpage/plusImage_white.png" media="(max-width: 320px)">
-                        <source srcset="images/image_big/mainpage/plusImage_white.png" media="(max-width: 414px)">
-                        <img src="images/mainpage/plusImage_white.png" />
-                    </picture>
-                    오늘의 실천 기록하기
-                </p>
+            <div id="tabWrap1">
+                <section class="tabWrap1">
+                    <p class="mainText1" id="mainText1"><span id="Day1Month">11</span>월 <span id="Day1Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+
+                </section>
+                <div class="mainBtn1">
+                    <p>
+                        <picture>
+                            <source srcset="images/mainpage/plusImage_white.png" media="(max-width: 320px)">
+                            <source srcset="images/image_big/mainpage/plusImage_white.png" media="(max-width: 414px)">
+                            <img src="images/mainpage/plusImage_white.png" />
+                        </picture>
+                        오늘의 실천 기록하기
+                    </p>
+                </div>
             </div>
         </div>
         <div id="Day2-tab" class="tab-content">
-            <section id="tabWrap2">
-                <p class="mainText1"><span id="Day2Month">11</span>월 <span id="Day2Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+            <div id="tabWrap2">
+                <section class="tabWrap1">
+                    <p class="mainText1"><span id="Day2Month">11</span>월 <span id="Day2Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+                </section>
                 <div class="mainBtn2">
                     <p>
                         <picture>
@@ -283,13 +289,16 @@
                             <source srcset="images/image_big/mainpage/plusImage_white.png" media="(max-width: 414px)">
                             <img src="images/mainpage/plusImage_white.png" />
                         </picture>
-                        오늘의 실천 기록하기</p>
+                        오늘의 실천 기록하기
+                    </p>
                 </div>
-            </section>
+            </div>
         </div>
         <div id="Day3-tab" class="tab-content">
-            <section id="tabWrap3">
-                <p class="mainText1"><span id="Day3Month">11</span>월 <span id="Day3Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+            <div id="tabWrap3">
+                <section class="tabWrap1">
+                    <p class="mainText1"><span id="Day3Month">11</span>월 <span id="Day3Day">11</span>일 24:00 까지<br>작은 시작의 실천을 기록해주세요!</p>
+                </section>
                 <div class="mainBtn2">
                     <p>
                         <picture>
@@ -297,9 +306,10 @@
                             <source srcset="images/image_big/mainpage/plusImage_white.png" media="(max-width: 414px)">
                             <img src="images/mainpage/plusImage_white.png" />
                         </picture>
-                        오늘의 실천 기록하기</p>
+                        오늘의 실천 기록하기
+                    </p>
                 </div>
-            </section>
+            </div>
         </div>
     </div>
 
@@ -312,27 +322,29 @@
             <p class="dayTitle"><span class="dayTitleLine"><span id="day2Year"></span>년<span id="day2Mon">12</span>월<span id="day2Date"></span>일</span></p>
             <p id="day2Content" class="daycontent"></p>
         </section>
-        <section id="tabContent3" class="tabCon">
-            <p class="dayTitle"><span class="dayTitleLine"><span id="day3Year"></span>년<span id="day3Mon">12</span>월<span id="day3Date"></span>일</span></p>
-            <p id="day3Content" class="daycontent"></p>
+        <div id="tabContent3">
+            <section class="tabWrap1">
+                <p class="dayTitle"><span class="dayTitleLine"><span id="day3Year"></span>년<span id="day3Mon">12</span>월<span id="day3Date"></span>일</span></p>
+                <p id="day3Content" class="daycontent"></p>
+            </section>
             <div class="mainBtn3">
                 <p>
                     <picture>
                         <source srcset="images/mainpage/present.png" media="(max-width: 320px)">
                         <source srcset="images/image_big/mainpage/present.png" media="(max-width: 414px)">
-                        <img src="images/mainpage/present.png" />                    
+                        <img src="images/mainpage/present.png" />
                     </picture>
-                 작은시작 보상 받기
+                    작은시작 보상 받기
                 </p>
             </div>
-        </section>
+        </div>
         <section id="temp">
-            <div class="mainBtn1"> 
+            <div class="mainBtn1">
                 <p>
                     <picture>
                         <source srcset="images/mainpage/plusImage_white.png" media="(max-width: 320px)">
                         <source srcset="images/image_big/mainpage/plusImage_white.png" media="(max-width: 414px)">
-                        <img src="images/mainpage/plusImage_white.png" /> 
+                        <img src="images/mainpage/plusImage_white.png" />
                     </picture>
                     오늘의 실천 기록하기
                 </p>
@@ -373,7 +385,7 @@
          }
          function inDB(toData, inData) {
              var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
-             db.executeSql('UPDATE seedday set ' + toData + ' = "' + inData + '" WHERE ID = last_insert_rowid()', [], function () {
+             db.executeSql('UPDATE seedday set ' + toData + ' = "' + inData + '" WHERE ID = (SELECT MAX(ID) FROM seedday)', [], function () {
                  outDb();
              });
          }
@@ -382,7 +394,7 @@
          function onDeviceReady() {
              document.addEventListener('pause', onPause, false);
              document.addEventListener('resume', onResume, false);
-
+                 FastClick.attach(document.body);
              //splashscreen 가리기
              setTimeout(function () {
                  navigator.splashscreen.hide();
@@ -402,7 +414,7 @@
                          $("#" + tabNames[i] + "-tab").css("display", "none");
                      }
                  }
-                 $("#" + tabNames[activeTabIndex] + "-tab").fadeIn();
+                 $("#" + tabNames[activeTabIndex] + "-tab").show();
                  $("#" + tabNames[activeTabIndex]).addClass("active");
                  return false;
              });
@@ -510,7 +522,7 @@
             $('#day1Success').removeClass("on");
             //탭 내용 변경
             $("#tabWrap1").replaceWith($("#tabContent1"));
-            document.getElementById("day1Content").innerHTML = Day1;
+            document.getElementById("day1Content").innerHTML = Dhay1;
             $("#mainPlant").removeAttr("class");
             $("#mainPlant").addClass("mainPlant2");
         });
@@ -539,16 +551,18 @@
          //예외초과 확인버튼 클릭시
         $('#popupView1BtnId5').on('touchend click', function (event) {
             var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
-            db.executeSql("DELETE FROM seedday WHERE ID = last_insert_rowid()",[],function(){
+            db.executeSql("DELETE FROM seedday WHERE ID = (SELECT MAX(ID) FROM seedday)",[],function(){
                 location = "index.html";
             });
         });
-        
+
         $('#popupView1BtnId4').on('touchend click', function (event) {
             var db = window.sqlitePlugin.openDatabase({ name: "seed.db" });
-            db.executeSql('UPDATE seedday set COMPLETE = "comp" WHERE ID = last_insert_rowid()',[],function(){
-              //  var ref = cordova.InAppBrowser.open('http://seedday.net', '_blank', 'location=yes');
-                location = "index.html";
+            db.executeSql('UPDATE seedday set COMPLETE = "comp" WHERE ID = (SELECT MAX(ID) FROM seedday)', [], function () {
+                var ref = cordova.InAppBrowser.open('http://seedday.net', '_blank', 'location=yes');
+                ref.addEventListener('exit', function () {
+                    location = "index.html";
+                });
             });
         });
 
@@ -602,10 +616,10 @@
             var tomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000));
             var aftertomorrow = new Date(today.valueOf() + (24 * 60 * 60 * 1000 * 2));
             if (new Date(today.valueOf() + (24 * 60 * 60 * 1000)).getDate() == new Date().getDate()) {
-                $("#Day2-tab div").replaceWith($("#temp div"));
+                $("#Day2-tab .mainBtn2").replaceWith($("#temp div"));
             }
             if (new Date(today.valueOf() + (24 * 60 * 60 * 1000*2)).getDate() == new Date().getDate()) {
-                $("#Day3-tab div").replaceWith($("#temp2 div"));
+                $("#Day3-tab .mainBtn2").replaceWith($("#temp2 div"));
             }
             if (Day1 == null) {
                 $("#Day2").removeClass("active");
@@ -614,7 +628,7 @@
                 $("#Day3" + "-tab").css("display", "none");
                 $("#Day1").removeClass("active");
                 $("#Day1" + "-tab").css("display", "none");
-                $("#" + "Day1" + "-tab").fadeIn();
+                $("#" + "Day1" + "-tab").show();
                 $("#" + "Day1").addClass("active");
                 var temp = new Date();
                 if (parseInt(today.getFullYear() + "" + ("0" + (today.getMonth() + 1)).slice(-2) + ("0" + (today.getDate())).slice(-2)) <
@@ -638,7 +652,7 @@
                 $("#Day2" + "-tab").css("display", "none");
                 $("#Day3").removeClass("active");
                 $("#Day3" + "-tab").css("display", "none");
-                $("#" + "Day2" + "-tab").fadeIn();
+                $("#" + "Day2" + "-tab").show();
                 $("#" + "Day2").addClass("active");
                 var temp = new Date();
                 if (parseInt(tomorrow.getFullYear() + "" + ("0" + (tomorrow.getMonth() + 1)).slice(-2) + ("0" + (tomorrow.getDate())).slice(-2)) <
@@ -662,7 +676,7 @@
                 $("#Day2" + "-tab").css("display", "none");
                 $("#Day3").removeClass("active");
                 $("#Day3" + "-tab").css("display", "none");
-                $("#" + "Day3" + "-tab").fadeIn();
+                $("#" + "Day3" + "-tab").show();
                 $("#" + "Day3").addClass("active");
                 var temp = new Date();
                 if (parseInt(aftertomorrow.getFullYear() + "" + ("0" + (aftertomorrow.getMonth() + 1)).slice(-2) + ("0" + (aftertomorrow.getDate())).slice(-2)) <
@@ -686,10 +700,10 @@
                 $("#Day2" + "-tab").css("display", "none");
                 $("#Day3").removeClass("active");
                 $("#Day3" + "-tab").css("display", "none");
-                $("#" + "Day3" + "-tab").fadeIn();
+                $("#" + "Day3" + "-tab").show();
                 $("#" + "Day3").addClass("active");
             }
-            if (Day1 != null) { 
+            if (Day1 != null) {
                 $("#tabWrap1").replaceWith($("#tabContent1"));
                 document.getElementById("day1Content").innerHTML = Day1;
             }
@@ -701,9 +715,10 @@
                 $("#tabWrap3").replaceWith($("#tabContent3"));
                 document.getElementById("day3Content").innerHTML = Day3;
             }
-        };   
+        };
     </script>
 
 </body>
+
 
 </html>

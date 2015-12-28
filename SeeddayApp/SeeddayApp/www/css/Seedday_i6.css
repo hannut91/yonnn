@@ -1,7 +1,7 @@
 ﻿.introback{background:url("../images/image_big/background.png") no-repeat center center fixed;background-size:cover;}
 .bottomBtn{width:100%;height:88px;position:fixed;bottom:0px;text-align:center;background-color:#ffffff;-webkit-animation-timing-function:ease;-webkit-animation-duration:0.5s;-webkit-animation-fill-mode:forwards}
 .bottomBtn p{color:#662ac3;font-size:24px;font-weight:bold;margin:28px}
-.bottomBtn img{width:31px;height:31px;vertical-align:sub;margin-right:14px;}
+.bottomBtn img{width:31px;height:31px;vertical-align:sub;margin-right:4px;}
 @-webkit-keyframes downBtn{from{bottom:0px;}to{bottom:-88px;}
 }
 .popupView1{margin:0px;width:90%;background:#ffffff;text-align:center;display:none;position:absolute;left:50%;top:50%;z-index:3;border-radius:3px 3px 6px 6px;}
@@ -21,7 +21,7 @@
 #blind_box{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;z-index:2;}
 .carousel5 li {width:100%;height:100%;font-size:30px;background-color: #fff;}
 .carousel-demo {margin-top:48px;margin-bottom:41px;width:100%;display:inline-block;text-align: center;}
-ul[rn-carousel] {width:60%;height:90px;margin: 0 auto;}
+ul[rn-carousel] {width:60%;height:105px;margin: 0 auto;}
 ul[rn-carousel] {overflow: hidden;padding: 0;white-space: nowrap;position: relative;-webkit-perspective: 1000px;-ms-perspective: 1000px;perspective: 1000px;-ms-touch-action: pan-y;touch-action: pan-y;}
 ul[rn-carousel] > li {color: black;-webkit-backface-visibility: hidden;-ms-backface-visibility: hidden;backface-visibility: hidden;overflow: visible;vertical-align: top;position: absolute;left: 0;right: 0;white-space: normal;padding: 0;margin: 0;list-style-type: none;width: 100%;height: 100%;display: inline-block; }
 .plantBottomLine{margin-bottom:0px;margin-top:0px;width:85px;color:#8f5ed9;border:1px solid #8f5ed9}
@@ -41,5 +41,5 @@ ul[rn-carousel] > li {color: black;-webkit-backface-visibility: hidden;-ms-backf
 .rn-carousel-control.rn-carousel-control-next {right:44px;}
 .rn-carousel-control.rn-carousel-control-next:before {background:url('../images/image_big/plantRight.png') no-repeat center center;background-size: 14px;padding:10px;content:' ';}
 
-}
+
 
